@@ -1,0 +1,27 @@
+title: "jcicaaa3 Security Lab"
+description: "jcicaaa3의 악성코드 분석과 컴퓨터공학 연구 기록"
+url: "https://jcicaaa3-cloud.github.io"
+baseurl: ""
+lang: ko-KR
+timezone: Asia/Seoul
+encoding: UTF-8
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+header_pages:
+  - research.md
+  - evidence.md
+  - about.md
+show_excerpts: false
+minima:
+  date_format: "%Y-%m-%d"
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - SECURITY.md
+  - .gitignore

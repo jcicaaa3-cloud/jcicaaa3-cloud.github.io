@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="post-page">
+  <header class="post-heading">
+    <a class="back-link" href="{{ '/research/' | relative_url }}">← 글 목록</a>
+    <p class="post-heading-date"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y.%m.%d' }}</time><span aria-hidden="true"> · </span>{{ page.topic | default: '연구 기록' }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.lead %}<p class="post-deck">{{ page.lead | escape }}</p>{% endif %}
+  </header>
+  {% if page.cover %}
+  <figure class="post-cover">
+    <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title | escape }}" loading="eager">
+    {% if page.cover_caption %}<figcaption>{{ page.cover_caption | escape }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+  <div class="prose post-body">{{ content }}</div>
+  <nav class="post-end" aria-label="글 끝">
+    <a href="{{ '/research/' | relative_url }}">← 다른 기록 보기</a>
+    <a href="{{ '/evidence/' | relative_url }}">분석 화면 모음 →</a>
+  </nav>
+</article>
