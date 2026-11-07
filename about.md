@@ -17,6 +17,14 @@ description: "jcicaaa3의 연구 관심 분야 및 연락처"
 </ul>
 <h2>공부하고 있는 것</h2>
 <p>한국외국어대학교 컴퓨터공학과 / 동북아외교통상 복수전공. Ghidra로 PE 파일을 분석하고, Python과 PowerShell로 자료를 확인하고 있습니다.</p>
+<!-- RP-ABOUT-BEGIN -->
+<section aria-labelledby="ai-research-title">
+  <h2 id="ai-research-title">기존 AI 연구</h2>
+  <p>LiteRaceSegNet 모델 개발, 재무 데이터 ML 서비스 구현, 로봇 행동 평가 기준 연구를 정리했습니다.</p>
+  <p><a href="{{ '/projects/' | relative_url }}">연구 프로젝트 자세히 보기</a></p>
+</section>
+<!-- RP-ABOUT-END -->
+
 <h2>연락처</h2>
 <p><a href="mailto:jcicaaa3@gmail.com">이메일</a> · <a href="https://github.com/jcicaaa3-cloud">GitHub</a></p>
 <p>이곳의 글은 개인이 작성한 학습·연구 기록입니다.</p>
