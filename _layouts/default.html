@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5ee">
+  {% seo %}
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+  <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+</head>
+<body class="{% if page.url == '/' %}home-view{% else %}inner-view{% endif %}">
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <div class="paper-frame">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="{{ '/' | relative_url }}" class="site-identity" aria-label="jcicaaa3 Security Lab 첫 화면">
+          <span class="site-title-block"><strong>jcicaaa3 Security Lab</strong><small>개인 보안 연구 기록</small></span>
+        </a>
+        <nav class="site-nav" aria-label="사이트 메뉴">
+          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>처음</a>
+          <a href="{{ '/research/' | relative_url }}" {% if page.url == '/research/' %}aria-current="page"{% endif %}>글 목록</a>
+          <a href="{{ '/evidence/' | relative_url }}" {% if page.url == '/evidence/' %}aria-current="page"{% endif %}>사진</a>
+          <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>소개</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="site-main">{{ content }}</main>
+    <footer class="site-footer">
+      <span class="footer-note"><span class="dot" aria-hidden="true"></span> 개인 연구 기록 · 2026</span>
+      <span><a href="https://github.com/jcicaaa3-cloud" rel="me">GitHub</a><span aria-hidden="true"> / </span><a href="{{ '/feed.xml' | relative_url }}">RSS</a></span>
+    </footer>
+  </div>
+</body>
+</html>
