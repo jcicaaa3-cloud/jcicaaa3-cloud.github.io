@@ -23,7 +23,7 @@ description: "jcicaaa3의 Calipso 랜섬웨어 분석과 컴퓨터보안 연구 
   <div class="feature-sheet">
     <div class="feature-copy">
       <span class="mini-label">11월 6일에 적은 글 · 두 번째 기록</span>
-      <h3>PE 섹션을 살펴보다가<br><code>0x900B3</code>을 발견했다</h3>
+      <h3>PE 섹션을 살펴보다가<br><code>0x900B3</code>을 발견했습니다</h3>
       <p>샘플의 해시를 확인한 다음 PE 헤더와 섹션을 읽었습니다. 이후 Ghidra에서 <code>DeviceIoControl</code> 호출과 연결된 파일시스템 제어 코드를 찾았고, 어떤 작업인지 더 살펴보는 중입니다.</p>
       <a class="note-link" href="{{ '/research/calipso-02/' | relative_url }}">정적 분석 글 읽기 →</a>
     </div>
