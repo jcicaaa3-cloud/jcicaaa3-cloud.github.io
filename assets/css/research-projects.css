@@ -1,0 +1,31 @@
+/* Scoped to the research archive so existing Jekyll/Minima pages keep their style. */
+.rp { --rp-ink: #202f3d; --rp-muted: #586778; --rp-border: #dce4ea; --rp-accent: #245f8e; color: var(--rp-ink); }
+.rp * { box-sizing: border-box; }
+.rp .rp-eyebrow { color: var(--rp-accent); font-size: .73rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 .7rem; }
+.rp .rp-lead { font-size: clamp(1.22rem, 2.5vw, 1.65rem); line-height: 1.55; font-weight: 650; letter-spacing: -.025em; margin: 0 0 1rem; }
+.rp .rp-intro { padding: 1.3rem 0 1.8rem; max-width: 48rem; }
+.rp .rp-intro > p:not(.rp-lead):not(.rp-eyebrow) { color: var(--rp-muted); line-height: 1.85; }
+.rp .rp-chips { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.1rem; }
+.rp .rp-chips span { font-size: .76rem; border: 1px solid var(--rp-border); border-radius: 999px; padding: .28rem .65rem; }
+.rp .rp-heading { border: none; font-size: 1.22rem; margin: .3rem 0 1.05rem; }
+.rp .rp-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .9rem; }
+.rp .rp-card { border: 1px solid var(--rp-border); border-radius: 13px; padding: 1.25rem; background: transparent; display:flex; flex-direction:column; min-width:0; }
+.rp .rp-featured { background: #f5f9fc; }
+.rp .rp-kicker { color: var(--rp-accent); font-size: .72rem; font-weight: 700; letter-spacing: .045em; margin:0 0 .6rem; }
+.rp .rp-card h3 { margin: 0 0 .62rem; font-size: 1.16rem; line-height:1.35; }
+.rp .rp-card > p:not(.rp-kicker) { font-size: .9rem; line-height: 1.75; color:var(--rp-muted); }
+.rp .rp-note { font-size: .82rem !important; color:var(--rp-muted); }
+.rp .rp-metrics { display:flex; flex-wrap:wrap; gap:.65rem; padding:.65rem 0; margin-top:auto; }
+.rp .rp-metrics span { display:flex; flex-direction:column; min-width:4.65rem; }
+.rp .rp-metrics strong { color:var(--rp-ink); font-size:1.08rem; letter-spacing:-.02em; }
+.rp .rp-metrics small { color:var(--rp-muted); font-size:.68rem; }
+.rp .rp-links { display:flex; flex-wrap:wrap; align-items:center; gap: .55rem 1rem; margin: auto 0 0; padding-top: .8rem; }
+.rp .rp-links a, .rp .rp-end a { color:var(--rp-accent); text-decoration:underline; text-underline-offset:3px; font-weight:600; }
+.rp .rp-links a { font-size:.86rem; }
+.rp .rp-end { margin-top:1.55rem; padding:1.2rem 0; border-top:1px solid var(--rp-border); line-height:1.75; }
+.rp .rp-end h2 { border: none; margin:.2rem 0 .5rem; font-size:1.1rem; }
+.rp .rp-detail { padding: .5rem 0 1rem; margin-bottom:.35rem; border-bottom:1px solid var(--rp-border); }
+.rp .rp-detail p:last-child { margin-bottom:0; }
+.rp a:focus-visible { outline: 2px solid var(--rp-accent); outline-offset: 3px; border-radius:2px; }
+@media (max-width:660px) { .rp .rp-grid { grid-template-columns:1fr; } .rp .rp-card { padding:1rem; } .rp .rp-intro { padding-top:.4rem; } }
+@media (prefers-color-scheme:dark) { .rp { --rp-ink:#e1e8ef; --rp-muted:#becbd5; --rp-border:#465564; --rp-accent:#9dccf2; } .rp .rp-featured { background:#24303b; } }

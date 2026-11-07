@@ -33,6 +33,14 @@ description: "jcicaaa3의 Calipso 랜섬웨어 분석과 컴퓨터보안 연구 
   </div>
 </section>
 
+<!-- RP-HOME-BEGIN -->
+<section class="home-section" aria-labelledby="research-projects-title">
+  <div class="section-topline"><h2 id="research-projects-title">AI 연구 프로젝트</h2><a class="note-link" href="{{ '/projects/' | relative_url }}">프로젝트 전체 보기 →</a></div>
+  <p>기존 AI 연구도 함께 정리했습니다. 경량 컴퓨터 비전 모델, 머신러닝 서비스, 로봇 행동 평가 연구를 프로젝트별로 소개합니다.</p>
+  <p><a class="note-link" href="{{ '/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a> · <a class="note-link" href="{{ '/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a> · <a class="note-link" href="{{ '/projects/robot-evaluation/' | relative_url }}">로봇 행동 평가</a></p>
+</section>
+<!-- RP-HOME-END -->
+
 <section class="home-section" aria-labelledby="entries-title">
   <div class="section-topline"><h2 id="entries-title">최근에 적은 글</h2><a class="note-link" href="{{ '/research/' | relative_url }}">글 목록 →</a></div>
   <ol class="log-list">
