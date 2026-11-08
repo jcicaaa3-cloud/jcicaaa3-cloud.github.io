@@ -3,7 +3,13 @@ layout: default
 ---
 <article class="post-page">
   <header class="post-heading">
+    {% if page.lang == 'ja' %}
+    <a class="back-link" href="{{ '/ja/research/' | relative_url }}">← 記事一覧</a>
+    {% elsif page.lang == 'en' %}
+    <a class="back-link" href="{{ '/en/research/' | relative_url }}">← Research notes</a>
+    {% else %}
     <a class="back-link" href="{{ '/research/' | relative_url }}">← 글 목록</a>
+    {% endif %}
     <p class="post-heading-date"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y.%m.%d' }}</time><span aria-hidden="true"> · </span>{{ page.topic | default: '연구 기록' }}</p>
     <h1>{{ page.title | escape }}</h1>
     {% if page.lead %}<p class="post-deck">{{ page.lead | escape }}</p>{% endif %}
@@ -15,8 +21,13 @@ layout: default
   </figure>
   {% endif %}
   <div class="prose post-body">{{ content }}</div>
-  <nav class="post-end" aria-label="글 끝">
-    <a href="{{ '/research/' | relative_url }}">← 다른 기록 보기</a>
-    <a href="{{ '/evidence/' | relative_url }}">분석 화면 모음 →</a>
+  <nav class="post-end" aria-label="{% if page.lang == 'ja' %}記事末尾{% elsif page.lang == 'en' %}End of article{% else %}글 끝{% endif %}">
+    {% if page.lang == 'ja' %}
+    <a href="{{ '/ja/research/' | relative_url }}">← 記事一覧に戻る</a><a href="{{ '/ja/evidence/' | relative_url }}">画像資料 →</a>
+    {% elsif page.lang == 'en' %}
+    <a href="{{ '/en/research/' | relative_url }}">← More research notes</a><a href="{{ '/en/evidence/' | relative_url }}">Evidence gallery →</a>
+    {% else %}
+    <a href="{{ '/research/' | relative_url }}">← 다른 기록 보기</a><a href="{{ '/evidence/' | relative_url }}">분석 화면 모음 →</a>
+    {% endif %}
   </nav>
 </article>

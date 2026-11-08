@@ -1,33 +1,82 @@
+{% assign current_lang = page.lang | default: 'ko' %}
+{% assign original_path = page.url %}
+{% if current_lang == 'ja' %}{% assign original_path = page.url | remove_first: '/ja' %}{% endif %}
+{% if current_lang == 'en' %}{% assign original_path = page.url | remove_first: '/en' %}{% endif %}
+{% assign japanese_path = '/ja' | append: original_path %}
+{% assign english_path = '/en' | append: original_path %}
+{% assign japanese_page = site.pages | where: 'url', japanese_path | first %}
+{% assign english_page = site.pages | where: 'url', english_path | first %}
+{% assign japanese_available = false %}
+{% assign english_available = false %}
+{% if japanese_page %}{% assign japanese_available = true %}{% endif %}
+{% if english_page %}{% assign english_available = true %}{% endif %}
+{% assign japanese_full = false %}
+{% assign english_full = false %}
+{% if japanese_available %}{% unless japanese_page.summary_only %}{% assign japanese_full = true %}{% endunless %}{% endif %}
+{% if english_available %}{% unless english_page.summary_only %}{% assign english_full = true %}{% endunless %}{% endif %}
 <!doctype html>
-<html lang="ko">
+<html lang="{{ current_lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f5ee">
   {% seo %}
+  {% unless page.summary_only %}
+    {% if japanese_full or english_full %}
+  <link rel="alternate" hreflang="ko" href="{{ original_path | absolute_url }}">
+      {% if japanese_full %}<link rel="alternate" hreflang="ja" href="{{ japanese_path | absolute_url }}">{% endif %}
+      {% if english_full %}<link rel="alternate" hreflang="en" href="{{ english_path | absolute_url }}">{% endif %}
+  <link rel="alternate" hreflang="x-default" href="{{ original_path | absolute_url }}">
+    {% endif %}
+  {% endunless %}
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/lang-switch.css' | relative_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
   <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
 </head>
-<body class="{% if page.url == '/' %}home-view{% else %}inner-view{% endif %}">
-  <a class="skip-link" href="#main">본문으로 이동</a>
+<body class="{% if original_path == '/' %}home-view{% else %}inner-view{% endif %}">
+  <a class="skip-link" href="#main">{% if current_lang == 'ja' %}本文へ移動{% elsif current_lang == 'en' %}Skip to content{% else %}본문으로 이동{% endif %}</a>
   <div class="paper-frame">
     <header class="site-header">
       <div class="header-inner">
-        <a href="{{ '/' | relative_url }}" class="site-identity" aria-label="jcicaaa3 Security Lab 첫 화면">
-          <span class="site-title-block"><strong>jcicaaa3 Security Lab</strong><small>개인 보안 연구 기록</small></span>
+        <a href="{% if current_lang == 'ja' %}{{ '/ja/' | relative_url }}{% elsif current_lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="site-identity" aria-label="jcicaaa3 Security Lab">
+          <span class="site-title-block"><strong>jcicaaa3 Security Lab</strong><small>{% if current_lang == 'ja' %}個人の研究記録{% elsif current_lang == 'en' %}Independent research notes{% else %}개인 보안 연구 기록{% endif %}</small></span>
         </a>
-        <nav class="site-nav" aria-label="사이트 메뉴">
-          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>처음</a>
-          <a href="{{ '/research/' | relative_url }}" {% if page.url == '/research/' %}aria-current="page"{% endif %}>글 목록</a>
-          <a href="{{ '/evidence/' | relative_url }}" {% if page.url == '/evidence/' %}aria-current="page"{% endif %}>사진</a>
-          <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>소개</a>
-        </nav>
+        <div class="header-tools">
+          <nav class="site-nav" aria-label="{% if current_lang == 'ja' %}サイトメニュー{% elsif current_lang == 'en' %}Site navigation{% else %}사이트 메뉴{% endif %}">
+            {% if current_lang == 'ja' %}
+            <a href="{{ '/ja/' | relative_url }}" {% if page.url == '/ja/' %}aria-current="page"{% endif %}>ホーム</a>
+            <a href="{{ '/ja/research/' | relative_url }}" {% if page.url == '/ja/research/' %}aria-current="page"{% endif %}>記事</a>
+            <a href="{{ '/ja/projects/' | relative_url }}" {% if page.url == '/ja/projects/' %}aria-current="page"{% endif %}>研究</a>
+            <a href="{{ '/ja/evidence/' | relative_url }}" {% if page.url == '/ja/evidence/' %}aria-current="page"{% endif %}>資料</a>
+            <a href="{{ '/ja/about/' | relative_url }}" {% if page.url == '/ja/about/' %}aria-current="page"{% endif %}>概要</a>
+            {% elsif current_lang == 'en' %}
+            <a href="{{ '/en/' | relative_url }}" {% if page.url == '/en/' %}aria-current="page"{% endif %}>Home</a>
+            <a href="{{ '/en/research/' | relative_url }}" {% if page.url == '/en/research/' %}aria-current="page"{% endif %}>Writing</a>
+            <a href="{{ '/en/projects/' | relative_url }}" {% if page.url == '/en/projects/' %}aria-current="page"{% endif %}>Projects</a>
+            <a href="{{ '/en/evidence/' | relative_url }}" {% if page.url == '/en/evidence/' %}aria-current="page"{% endif %}>Evidence</a>
+            <a href="{{ '/en/about/' | relative_url }}" {% if page.url == '/en/about/' %}aria-current="page"{% endif %}>About</a>
+            {% else %}
+            <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}aria-current="page"{% endif %}>처음</a>
+            <a href="{{ '/research/' | relative_url }}" {% if page.url == '/research/' %}aria-current="page"{% endif %}>글 목록</a>
+            <a href="{{ '/projects/' | relative_url }}" {% if page.url == '/projects/' %}aria-current="page"{% endif %}>프로젝트</a>
+            <a href="{{ '/evidence/' | relative_url }}" {% if page.url == '/evidence/' %}aria-current="page"{% endif %}>사진</a>
+            <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}aria-current="page"{% endif %}>소개</a>
+            {% endif %}
+          </nav>
+          <nav class="language-switch" aria-label="Language / 言語 / 언어">
+            {% if current_lang == 'ko' %}<span lang="ko" aria-current="page">한국어</span>{% else %}<a lang="ko" hreflang="ko" href="{{ original_path | relative_url }}">한국어</a>{% endif %}
+            <span class="language-separator" aria-hidden="true">/</span>
+            {% if current_lang == 'en' %}<span lang="en" aria-current="page">English</span>{% else %}<a lang="en" hreflang="en" href="{% if english_available %}{{ english_path | relative_url }}{% else %}{{ '/en/' | relative_url }}{% endif %}">English</a>{% endif %}
+            <span class="language-separator" aria-hidden="true">/</span>
+            {% if current_lang == 'ja' %}<span lang="ja" aria-current="page">日本語</span>{% else %}<a lang="ja" hreflang="ja" href="{% if japanese_available %}{{ japanese_path | relative_url }}{% else %}{{ '/ja/' | relative_url }}{% endif %}">日本語</a>{% endif %}
+          </nav>
+        </div>
       </div>
     </header>
     <main id="main" class="site-main">{{ content }}</main>
     <footer class="site-footer">
-      <span class="footer-note"><span class="dot" aria-hidden="true"></span> 개인 연구 기록 · 2026</span>
+      <span class="footer-note"><span class="dot" aria-hidden="true"></span>{% if current_lang == 'ja' %}個人研究ノート{% elsif current_lang == 'en' %}Independent research notes{% else %}개인 연구 기록{% endif %} · 2026</span>
       <span><a href="https://github.com/jcicaaa3-cloud" rel="me">GitHub</a><span aria-hidden="true"> / </span><a href="{{ '/feed.xml' | relative_url }}">RSS</a></span>
     </footer>
   </div>
