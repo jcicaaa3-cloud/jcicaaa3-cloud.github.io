@@ -31,11 +31,26 @@
   {% endunless %}
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/lang-switch.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/lang-welcome.css' | relative_url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
   <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/lang-welcome.js' | relative_url }}" defer></script>
 </head>
 <body class="{% if original_path == '/' %}home-view{% else %}inner-view{% endif %}">
   <a class="skip-link" href="#main">{% if current_lang == 'ja' %}本文へ移動{% elsif current_lang == 'en' %}Skip to content{% else %}본문으로 이동{% endif %}</a>
+  <div id="language-welcome" class="language-welcome" hidden>
+    <section class="language-welcome__panel" role="dialog" aria-modal="true" aria-labelledby="language-welcome-title" aria-describedby="language-welcome-description" tabindex="-1">
+      <button type="button" class="language-welcome__close" data-language-dismiss aria-label="{% if current_lang == 'ja' %}閉じる{% elsif current_lang == 'en' %}Close{% else %}닫기{% endif %}">×</button>
+      <p class="language-welcome__eyebrow">JCICAAA3 SECURITY LAB</p>
+      <h2 id="language-welcome-title">{% if current_lang == 'ja' %}表示言語を選択{% elsif current_lang == 'en' %}Choose a language{% else %}언어 선택{% endif %}</h2>
+      <p id="language-welcome-description" class="language-welcome__description">{% if current_lang == 'ja' %}あとから画面右上で変更できます。{% elsif current_lang == 'en' %}You can change this later in the top-right corner.{% else %}나중에도 화면 오른쪽 위에서 변경할 수 있습니다.{% endif %}</p>
+      <nav class="language-welcome__options" aria-label="Language / 言語 / 언어">
+        <a href="{{ '/' | relative_url }}" lang="ko" hreflang="ko" data-language-choice>한국어<span aria-hidden="true">↗</span></a>
+        <a href="{{ '/en/' | relative_url }}" lang="en" hreflang="en" data-language-choice>English<span aria-hidden="true">↗</span></a>
+        <a href="{{ '/ja/' | relative_url }}" lang="ja" hreflang="ja" data-language-choice>日本語<span aria-hidden="true">↗</span></a>
+      </nav>
+    </section>
+  </div>
   <div class="paper-frame">
     <header class="site-header">
       <div class="header-inner">
