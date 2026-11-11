@@ -32,14 +32,15 @@
 <header class="site-header">
   <a class="site-title" href="{{ home | relative_url }}">jcicaaa3</a>
   <nav>
+    <a href="{{ home | relative_url }}"{% if page.url == home %} aria-current="page"{% endif %}>{{ t.home }}</a>
     <a href="{{ t.prefix | append: '/research/' | relative_url }}"{% if page.url contains '/research/' %} aria-current="page"{% endif %}>{{ t.posts }}</a>
     <a href="{{ t.prefix | append: '/projects/' | relative_url }}"{% if page.url contains '/projects/' %} aria-current="page"{% endif %}>{{ t.projects }}</a>
     <a href="{{ t.prefix | append: '/evidence/' | relative_url }}"{% if page.url contains '/evidence/' %} aria-current="page"{% endif %}>{{ t.evidence }}</a>
     <a href="{{ t.prefix | append: '/about/' | relative_url }}"{% if page.url contains '/about/' %} aria-current="page"{% endif %}>{{ t.about }}</a>
     <span class="langs">
-      {%- if lang != 'ko' %}<a href="{{ base_path | relative_url }}" lang="ko" hreflang="ko">한국어</a>{% endif -%}
-      {%- if lang != 'en' %}<a href="{% if en_page %}{{ en_path | relative_url }}{% else %}{{ '/en/' | relative_url }}{% endif %}" lang="en" hreflang="en">English</a>{% endif -%}
-      {%- if lang != 'ja' %}<a href="{% if ja_page %}{{ ja_path | relative_url }}{% else %}{{ '/ja/' | relative_url }}{% endif %}" lang="ja" hreflang="ja">日本語</a>{% endif -%}
+      {%- if lang == 'ko' %}<span aria-current="true">한국어</span>{% else %}<a href="{{ base_path | relative_url }}" lang="ko" hreflang="ko">한국어</a>{% endif -%}
+      {%- if lang == 'en' %}<span aria-current="true">English</span>{% else %}<a href="{% if en_page %}{{ en_path | relative_url }}{% else %}{{ '/en/' | relative_url }}{% endif %}" lang="en" hreflang="en">English</a>{% endif -%}
+      {%- if lang == 'ja' %}<span aria-current="true">日本語</span>{% else %}<a href="{% if ja_page %}{{ ja_path | relative_url }}{% else %}{{ '/ja/' | relative_url }}{% endif %}" lang="ja" hreflang="ja">日本語</a>{% endif -%}
     </span>
   </nav>
 </header>
