@@ -3,6 +3,7 @@ layout: post
 lang: en
 title: "Design notes for an RSA + AES hybrid encryption tool"
 date: 2026-11-06 15:00:00 +0900
+kind: crypto
 permalink: /en/research/hybrid-cryptography/
 description: "Structure and test list for a tool that encrypts files with AES and the AES key with an RSA public key"
 ---

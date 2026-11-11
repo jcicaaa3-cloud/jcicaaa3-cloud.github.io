@@ -1,4 +1,8 @@
 ko:
+  tagline: 악성코드 분석 공부 기록
+  kinds:
+    malware: 악성코드
+    crypto: 암호학
   prefix: ""
   skip: 본문으로 건너뛰기
   home: 처음
@@ -9,6 +13,10 @@ ko:
   email: 이메일
   back: ← 글 목록
 en:
+  tagline: Notes on malware analysis
+  kinds:
+    malware: Malware
+    crypto: Crypto
   prefix: /en
   skip: Skip to content
   home: Home
@@ -19,6 +27,10 @@ en:
   email: Email
   back: ← All posts
 ja:
+  tagline: マルウェア解析の勉強メモ
+  kinds:
+    malware: マルウェア
+    crypto: 暗号
   prefix: /ja
   skip: 本文へ移動
   home: ホーム

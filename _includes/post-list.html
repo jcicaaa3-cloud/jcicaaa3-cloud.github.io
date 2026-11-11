@@ -1,3 +1,4 @@
+{%- assign pl_t = site.data.i18n[include.lang] -%}
 {%- if include.lang == 'ko' -%}
 {%- assign items = site.posts -%}
 {%- else -%}
@@ -5,6 +6,6 @@
 {%- endif -%}
 <ul class="post-list">
 {%- for p in items limit: include.limit %}
-<li><time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: '%Y-%m-%d' }}</time> <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a></li>
+<li><time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: '%Y-%m-%d' }}</time><a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a><span class="kind">{{ pl_t.kinds[p.kind] }}</span></li>
 {%- endfor %}
 </ul>

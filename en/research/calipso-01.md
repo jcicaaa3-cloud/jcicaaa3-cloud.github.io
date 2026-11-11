@@ -3,6 +3,7 @@ layout: post
 lang: en
 title: "Calipso analysis (1): reading the public sandbox report"
 date: 2026-11-05 11:00:00 +0900
+kind: malware
 permalink: /en/research/calipso-01/
 description: "Notes from the public Triage run and PCRisk write-up of the Calipso ransomware"
 ---
