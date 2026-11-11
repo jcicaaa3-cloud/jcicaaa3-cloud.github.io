@@ -3,12 +3,12 @@ layout: default
 lang: en
 title: Home
 permalink: /en/
-description: "Notes on Windows malware static analysis and computer engineering by jcicaaa3"
+description: "jcicaaa3 studies security and AI: malware static analysis and model evaluation"
 ---
 <section class="hero">
   <div>
     <h1>Hi, I'm<br><em>jcicaaa3</em>.</h1>
-    <p>I study computer engineering. Lately I've been doing static analysis of Windows malware and writing down what I find here. I've also put up a few AI projects I worked on.</p>
+    <p>I study computer engineering. On the security side I've been doing static analysis of Windows malware, and on the AI side I've built and evaluated models. Next I want to bring the two together: using AI to detect malware, and working out how to evaluate that detection.</p>
   </div>
   <aside>
     <a href="mailto:jcicaaa3@gmail.com">Email</a>
@@ -36,12 +36,25 @@ description: "Notes on Windows malware static analysis and computer engineering 
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>Projects</h2><a href="{{ '/en/projects/' | relative_url }}">All projects →</a></div>
-  <ul class="item-list">
-    <li><a href="{{ '/en/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>A lightweight model for segmenting road cracks and potholes</span></li>
-    <li><a href="{{ '/en/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>An ML API that predicts risk signals from quarterly financial data</span></li>
-    <li><a href="{{ '/en/projects/robot-evaluation/' | relative_url }}">Robot task success/failure evaluation</a><span>Graduation research on how the choice of criteria changes the verdict</span></li>
-  </ul>
+  <div class="section-head"><h2>What I'm working on</h2><a href="{{ '/en/projects/' | relative_url }}">All projects →</a></div>
+  <div class="tracks">
+    <div>
+      <h3>Security</h3>
+      <ul class="item-list">
+        <li><a href="{{ '/en/research/calipso-02/' | relative_url }}">Calipso static analysis</a><span class="tag">ongoing</span><span>PE structure, Windows API calls seen in Ghidra</span></li>
+        <li><a href="{{ '/en/research/hyflock-preview/' | relative_url }}">HYFLOCK detection comparison</a><span class="tag">planned</span><span>Why antivirus engines disagree on the same sample</span></li>
+        <li><a href="{{ '/en/research/hybrid-cryptography/' | relative_url }}">RSA + AES file encryption tool</a><span class="tag">in design</span><span>Hybrid encryption in PowerShell and C#</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>AI</h3>
+      <ul class="item-list">
+        <li><a href="{{ '/en/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>A lightweight model for segmenting road cracks and potholes</span></li>
+        <li><a href="{{ '/en/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>An ML API that predicts risk signals from quarterly financial data</span></li>
+        <li><a href="{{ '/en/projects/robot-evaluation/' | relative_url }}">Robot task success/failure evaluation</a><span>Graduation research on how the choice of criteria changes the verdict</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="section">

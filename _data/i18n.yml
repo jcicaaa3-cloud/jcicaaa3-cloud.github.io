@@ -1,5 +1,5 @@
 ko:
-  tagline: 악성코드 분석 공부 기록
+  tagline: 보안과 AI 공부 기록
   kinds:
     malware: 악성코드
     crypto: 암호학
@@ -13,7 +13,7 @@ ko:
   email: 이메일
   back: ← 글 목록
 en:
-  tagline: Notes on malware analysis
+  tagline: Notes on security and AI
   kinds:
     malware: Malware
     crypto: Crypto
@@ -27,7 +27,7 @@ en:
   email: Email
   back: ← All posts
 ja:
-  tagline: マルウェア解析の勉強メモ
+  tagline: セキュリティとAIの勉強メモ
   kinds:
     malware: マルウェア
     crypto: 暗号
