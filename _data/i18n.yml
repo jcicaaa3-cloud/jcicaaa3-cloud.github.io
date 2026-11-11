@@ -1,0 +1,27 @@
+ko:
+  prefix: ""
+  skip: 본문으로 건너뛰기
+  posts: 글
+  projects: 프로젝트
+  evidence: 캡처
+  about: 소개
+  email: 이메일
+  back: ← 글 목록
+en:
+  prefix: /en
+  skip: Skip to content
+  posts: Posts
+  projects: Projects
+  evidence: Screenshots
+  about: About
+  email: Email
+  back: ← All posts
+ja:
+  prefix: /ja
+  skip: 本文へ移動
+  posts: 記事
+  projects: プロジェクト
+  evidence: キャプチャ
+  about: 自己紹介
+  email: メール
+  back: ← 記事一覧

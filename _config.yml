@@ -1,5 +1,5 @@
-title: "jcicaaa3 Security Lab"
-description: "jcicaaa3의 악성코드 분석과 컴퓨터공학 연구 기록"
+title: jcicaaa3
+description: "악성코드 분석과 컴퓨터공학 공부 기록"
 url: "https://jcicaaa3-cloud.github.io"
 baseurl: ""
 lang: ko-KR
@@ -12,14 +12,17 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-header_pages:
-  - research.md
-  - projects.md
-  - evidence.md
-  - about.md
-show_excerpts: false
-minima:
-  date_format: "%Y-%m-%d"
+defaults:
+  - scope:
+      path: "en"
+    values:
+      lang: en
+      locale: en_US
+  - scope:
+      path: "ja"
+    values:
+      lang: ja
+      locale: ja_JP
 exclude:
   - README.md
   - Gemfile

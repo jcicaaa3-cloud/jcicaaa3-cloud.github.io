@@ -1,26 +1,26 @@
 ---
 layout: post
 lang: ja
-title: "次回の解析予告：HYFLOCK — ウイルス対策ソフトは何を検知するのか"
-lead: "Calipsoの次はHYFLOCKです。新しいビルドの構造と、製品によって検知結果が異なる理由を静的解析で調べます。"
-topic: "ランサムウェア · 予告"
+title: "次の解析対象：HYFLOCK"
 date: 2026-11-08 21:05:00 +0900
 permalink: /ja/research/hyflock-preview/
-description: "HYFLOCKランサムウェアの解析予告。Go製CarrierとRustペイロードの構造、検知結果の違いを調べる予定です。"
+description: "Calipsoの次に解析するHYFLOCKランサムウェア。Go製のCarrier、Rustのペイロード、ウイルス対策ソフトの検知結果の違いを見る予定"
 ---
-Calipsoの記録を整理した後、次に調べる対象として**HYFLOCK**を選びました。今回は実行ファイルの構造だけでなく、**ウイルス対策製品によって検知結果が異なる理由**にも注目します。
+Calipsoの次に見るサンプルはHYFLOCKです。今回は実行ファイルの構造に加えて、ウイルス対策ソフトによって検知結果が違う理由も見てみたいと思っています。
 
-2026年11月4日に公開されたCheck Pointの調査によると、HYFLOCKの2026年10月初旬のビルドには、**Go言語で実装されたCarrier**が**Rust製のペイロード**を内包する構成がありました。その後のビルドでは実行方法やファイル処理も変化しています。
+HYFLOCKは最近何度もビルドが変わっているランサムウェアです。11月4日に出た[Check Pointの解析](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/)によると、10月初めのバージョンはGoで作られたCarrierの中にRustのペイロードが別に入っている構造で、その後のビルドでは実行方法やファイル処理の構造も変わったそうです。
 
-検知が製品によって異なる場合でも、それだけで「すべての対策ソフトを回避した」とは言えません。**検査日時、エンジン、対象となるビルド**を分けて記録し、観察できた事実を整理したいと考えています。
+特に気になるのは検知のほうです。検知するエンジンとしないエンジンがありますが、スキャンした時期やエンジンの検知方式、サンプルのバージョンによって結果は変わりえます。なので比較するときは、サンプルのハッシュとスキャンした時期も一緒に記録するつもりです。
 
-### 調査予定
+## 見ること
 
-1. **ファイル構造：** PEヘッダー、セクション、文字列、インポート情報を確認します。
-2. **内部コンポーネント：** Go Carrierと内包されたペイロードの関係を静的解析で調べます。
-3. **検知結果：** 製品間の違いを、サンプル識別情報と検査日時とともに記録します。
-4. **既存研究との照合：** 公開レポートの記述と、自分で確認した内容を区別します。
+1. CarrierのPEヘッダー、セクション、文字列、インポート
+2. Goの実行ファイルと中に入っているペイロードの関係
+3. エンジンごとの検知結果の違い（サンプルのハッシュ、スキャン時期つき）
+4. Check Pointのレポートの内容と自分で確認した内容の比較
 
-**この記事は予告です。** 検証が完了したという意味ではありません。悪性の実行ファイルをサイトやGitHubで配布せず、公開資料と静的解析を中心に記録します。
+まだ解析を始めていないので、計画だけ書きました。サンプルファイルはブログやGitHubには載せません。
 
-**参考：** [Check Point — HYFLOCK Ransomware Evolves with New Builds and Encryption Weaknesses (2026-11-04)](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/)
+## 参考
+
+- [Check Point：HYFLOCK Ransomware Evolves with New Builds and Encryption Weaknesses](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/)（2026-11-04）
