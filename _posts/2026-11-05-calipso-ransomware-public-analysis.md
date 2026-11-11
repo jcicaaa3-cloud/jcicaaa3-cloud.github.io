@@ -1,73 +1,65 @@
 ---
 layout: post
-title: "Calipso 분석 #01 · 공개 샌드박스 보고서 읽기"
+title: "Calipso 분석 (1) 공개 샌드박스 보고서 읽기"
 date: 2026-11-05 11:00:00 +0900
 categories: [Malware-Analysis]
 tags: [ransomware, calipso, windows, sandbox]
 permalink: /research/calipso-01/
-topic: "Calipso / 공개 보고서"
-board_category: "malware"
-cover: "/assets/images/sample-metadata.webp"
-cover_alt: "분석 대상 파일의 기본 정보를 확인한 화면"
-cover_caption: "파일 정보를 먼저 정리했습니다."
-lead: "Calipso를 처음 조사하면서 확인한 공개 실행 기록을 정리했습니다."
+description: "Calipso 랜섬웨어의 공개 Triage 실행 기록과 PCRisk 자료를 읽고 정리한 글"
 ---
+2026년 10월에 Calipso라는 랜섬웨어가 공개 보고됐습니다. 어떤 동작을 하는지 보려고 공개 샌드박스 기록과 보안업체 글부터 읽었습니다. 이 글에 나오는 실행 기록은 제가 직접 돌린 결과가 아니라 [Triage 보고서](https://tria.ge/261006-nzbfjaay5m/behavioral1)와 [PCRisk 글](https://www.pcrisk.com/removal-guides/35977-calipso-ransomware)에서 가져온 내용입니다.
 
-## 분석 대상 파일
+## 분석 대상
 
-Calipso라는 이름의 랜섬웨어가 2026년 10월에 공개 보고됐습니다. 어떤 행동을 하는지 확인하기 위해 보안업체 자료와 공개 샌드박스 실행 기록을 찾아봤습니다. 이 글에 적은 실행 흔적은 **제 컴퓨터에서 직접 실행해 측정한 결과가 아닙니다.** [Triage 보고서](https://tria.ge/261006-nzbfjaay5m/behavioral1)와 [PCRisk의 분석 글](https://www.pcrisk.com/removal-guides/35977-calipso-ransomware)을 읽으며 정리했습니다.
-
-| 항목 | 공개 자료에서 확인한 값 |
+| 항목 | 값 |
 | --- | --- |
 | 파일명 | `Calipso.exe` |
 | SHA-256 | `9f77af05e8b3112eb13777853c7397442d8467549c3bce01f2639305f98e96ed` |
 | 형식 | Windows x64 PE |
 | 크기 | 약 7.7MB |
-| 암호화 후 사용되는 확장자 | `.calipso` |
-| 랜섬노트 이름 | `recovery.txt` |
-| 공개 보고서 ID | `261006-nzbfjaay5m` |
+| 암호화 후 확장자 | `.calipso` |
+| 랜섬노트 | `recovery.txt` |
+| Triage 보고서 ID | `261006-nzbfjaay5m` |
 
-같은 이름의 모든 샘플이 같은 코드를 사용하는지는 별도로 확인해야 합니다. 아래 내용은 위 해시로 식별된 샘플의 공개 보고서를 기준으로 작성했습니다.
+<figure><a href="{{ '/assets/images/sample-metadata.webp' | relative_url }}"><img src="{{ '/assets/images/sample-metadata.webp' | relative_url }}" alt="분석 대상 파일의 기본 정보" loading="lazy"></a><figcaption>파일 기본 정보를 확인한 화면</figcaption></figure>
 
-## 파일이 바뀐 흔적
+같은 이름의 샘플이 모두 같은 코드라는 보장은 없어서, 아래 내용은 위 해시의 샘플 기준입니다.
 
-Triage의 Windows 10 실행 기록에는 **13,144건의 파일 이름 변경**이 보고돼 있습니다. 파일명 뒤에 `.calipso`가 붙는 모습도 확인할 수 있습니다. 여기서 13,144는 보고서가 기록한 파일 이름 변경 건수입니다. 실제로 13,144개 파일의 내용이 암호화됐는지까지 확인한 수치는 아닙니다.
+## 파일 이름 변경
 
-파일명이 바뀌었다는 사실과 파일 내용이 암호화됐다는 사실은 구분해야 합니다. 암호화 방식과 키 관리도 아직 조사할 부분으로 남겨뒀습니다.
+Triage의 Windows 10 실행 기록에는 파일 이름 변경이 13,144건 남아 있고, 파일명 뒤에 `.calipso`가 붙습니다. 다만 이건 이름이 바뀐 건수라서 13,144개 파일의 내용이 실제로 다 암호화됐는지는 알 수 없습니다. 암호화 방식과 키 관리는 아직 보지 못했습니다.
 
-## 복구를 막으려는 명령
+## 복구 방해 명령
 
-프로세스 기록에서 `vssadmin.exe`, `wmic.exe`, `wbadmin.exe`, `bcdedit.exe` 실행 흔적을 확인했습니다. 모두 Windows의 섀도 복사본이나 백업, 복구 설정을 다루는 도구입니다.
+프로세스 기록에 `vssadmin.exe`, `wmic.exe`, `wbadmin.exe`, `bcdedit.exe`가 보입니다. 전부 섀도 복사본, 백업, 복구 설정을 다루는 Windows 도구입니다.
 
-- `vssadmin`, `wmic`: 섀도 복사본 삭제를 시도하는 명령
-- `wbadmin`: 백업 카탈로그 삭제를 시도하는 명령
-- `bcdedit`: 복구 관련 부팅 설정을 변경하는 명령
+- `vssadmin`, `wmic`: 섀도 복사본 삭제
+- `wbadmin`: 백업 카탈로그 삭제
+- `bcdedit`: 복구 관련 부팅 설정 변경
 
-프로세스가 명령을 실행했다는 기록만으로 삭제가 모두 성공했다고 말할 수는 없습니다. 로그에서 시도와 결과를 따로 확인해야 합니다. ATT&CK에서는 관련 행동을 [T1490 — Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/)로 분류합니다.
+명령을 실행한 기록은 있지만 삭제까지 성공했는지는 로그를 따로 봐야 합니다. MITRE ATT&CK 기준으로는 [T1490 Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/)에 해당합니다.
 
 ## 이벤트 로그와 바탕화면
 
-`wevtutil.exe`를 이용한 이벤트 로그 삭제 시도도 기록돼 있습니다. 사고 후 기록을 조사할 때 문제가 될 수 있는 행동입니다. MITRE ATT&CK에서는 현재 [T1685.005 — Clear Windows Event Logs](https://attack.mitre.org/techniques/T1685/005/)로 분류합니다(이전 ID: T1070.001).
+`wevtutil.exe`로 이벤트 로그를 지우려 한 기록도 있습니다. 나중에 사고를 조사할 때 필요한 기록이 사라지는 셈입니다. ATT&CK에서는 [T1685.005 Clear Windows Event Logs](https://attack.mitre.org/techniques/T1685/005/)로 분류합니다(이전 ID T1070.001).
 
-바탕화면을 변경한 흔적도 있습니다. Triage에서는 `C:\ProgramData\calipso_wallpaper.png`를 가리키는 설정을 확인할 수 있습니다. 피해자에게 안내하는 문구와 `recovery.txt` 파일을 남긴다는 보고도 있습니다.
+바탕화면도 바뀝니다. Triage에서 `C:\ProgramData\calipso_wallpaper.png`를 가리키는 설정이 보이고, PCRisk에는 안내 문구와 `recovery.txt`를 남긴다고 나와 있습니다.
 
-## 계정 정보와 네트워크 기록
+## 자격 증명과 네트워크
 
-자동 분석 결과에는 브라우저 프로필과 Windows 자격 증명 관련 접근 탐지도 나타납니다. 실제 비밀번호 탈취가 성공했는지, 외부 전송이 있었는지는 아직 확인하지 못했습니다.
+자동 분석 결과에 브라우저 프로필과 Windows 자격 증명에 접근했다는 탐지가 있습니다. 실제로 비밀번호를 가져갔는지, 밖으로 보냈는지는 아직 모릅니다.
 
-확인한 Triage Windows 10 실행의 Network 항목에는 Requests, TCP, UDP가 모두 0으로 표시됩니다. **해당 실행에서 네트워크 통신이 기록되지 않았다는 의미**로만 적었습니다. 다른 실행 환경에서도 같은 결과가 나올지는 알 수 없습니다.
+제가 본 Windows 10 실행에서는 Network 항목의 Requests, TCP, UDP가 모두 0이었습니다. 그 실행에서는 통신이 없었다는 정도로 보고 있고, 다른 환경에서도 그럴지는 모르겠습니다.
 
-## 다음에 볼 것
+## 다음 글
 
-공개 기록을 확인한 다음 실제 실행 파일 안에 어떤 코드가 있는지도 궁금해졌습니다. PE 헤더와 섹션을 확인하고, Ghidra에서 함수 참조를 살펴볼 계획입니다.
+공개 기록만으로는 코드 안에서 무슨 일이 일어나는지 알 수 없어서, 다음에는 PE 헤더와 섹션을 확인하고 Ghidra로 함수 참조를 따라가 봤습니다.
 
-[다음 글: Ghidra와 PE 구조 분석]({{ '/research/calipso-02/' | relative_url }})
+[다음 글: (2) PE 구조와 Ghidra]({{ '/research/calipso-02/' | relative_url }})
 
-### 자료 출처와 확인 범위
+## 참고
 
-- **공개 실행 기록:** [Recorded Future Triage / 행동 분석](https://tria.ge/261006-nzbfjaay5m/behavioral1). 파일명 변경 건수, 프로세스 실행 흔적, 네트워크 항목의 근거.
-- **공개 파일 정보:** [Recorded Future Triage / 정적 정보](https://tria.ge/261006-nzbfjaay5m/static1). 파일 정보 및 샘플 식별에 사용.
-- **보안업체 설명:** [PCRisk / Calipso ransomware](https://www.pcrisk.com/removal-guides/35977-calipso-ransomware). 확장자, 랜섬노트, 바탕화면 변경 설명을 대조.
-- **행위 분류:** [MITRE ATT&CK T1490 / Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/), [T1685.005 / Clear Windows Event Logs](https://attack.mitre.org/techniques/T1685/005/).
-
-위 목록에서 제 컴퓨터로 직접 실행해 재현했다고 주장하는 내용은 없습니다. 공개 보고서에 기록된 수치와 행동은 해당 보고서의 관찰 결과로 표기했습니다.
+- [Recorded Future Triage: 행동 분석](https://tria.ge/261006-nzbfjaay5m/behavioral1) (파일명 변경 건수, 프로세스, 네트워크 항목)
+- [Recorded Future Triage: 정적 정보](https://tria.ge/261006-nzbfjaay5m/static1)
+- [PCRisk: Calipso ransomware](https://www.pcrisk.com/removal-guides/35977-calipso-ransomware)
+- MITRE ATT&CK [T1490](https://attack.mitre.org/techniques/T1490/), [T1685.005](https://attack.mitre.org/techniques/T1685/005/)

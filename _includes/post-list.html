@@ -1,0 +1,10 @@
+{%- if include.lang == 'ko' -%}
+{%- assign items = site.posts -%}
+{%- else -%}
+{%- assign items = site.pages | where: 'lang', include.lang | where: 'layout', 'post' | sort: 'date' | reverse -%}
+{%- endif -%}
+<ul class="post-list">
+{%- for p in items limit: include.limit %}
+<li><time datetime="{{ p.date | date: '%Y-%m-%d' }}">{{ p.date | date: '%Y-%m-%d' }}</time> <a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a></li>
+{%- endfor %}
+</ul>

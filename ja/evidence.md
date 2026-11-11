@@ -1,30 +1,24 @@
 ---
 layout: page
 lang: ja
-title: 資料
-display_title: 分析時の画面
+title: キャプチャ
 permalink: /ja/evidence/
-intro: "分析時に保存した9枚のスクリーンショットです。クリックすると拡大できます。"
-description: "CalipsoランサムウェアのPEヘッダー、Ghidraの調査画面、VMの記録"
+description: "Calipsoランサムウェアの解析中に撮ったPEヘッダー、セクション、VM画面のキャプチャ"
 ---
-個人で行った分析の記録を、内容ごとに整理しました。ターミナル出力はファイル構造を調べた際の記録であり、VMの画面は撮影時点の状態を示しています。
+Calipsoを解析しながら撮った画面9枚です。クリックすると元のサイズで開きます。PowerShellの出力はファイル構造を調べたときのもので、VMの画面は撮影した時点の状態です。
 
-<div class="evidence-grid">
-<figure><a href="{{ '/assets/images/sha256-check.webp' | relative_url }}"><img src="{{ '/assets/images/sha256-check.webp' | relative_url }}" alt="SHA-256のPowerShell出力" loading="lazy"></a><figcaption><strong>01. ファイルのハッシュ</strong>分析対象を識別するためのSHA-256の確認。</figcaption></figure>
-<figure><a href="{{ '/assets/images/sample-metadata.webp' | relative_url }}"><img src="{{ '/assets/images/sample-metadata.webp' | relative_url }}" alt="対象ファイルの情報" loading="lazy"></a><figcaption><strong>02. 基本情報</strong>実行ファイルのメタデータ。</figcaption></figure>
-<figure><a href="{{ '/assets/images/pe-file-header.webp' | relative_url }}"><img src="{{ '/assets/images/pe-file-header.webp' | relative_url }}" alt="PEヘッダーの調査" loading="lazy"></a><figcaption><strong>03. PEヘッダー</strong>ファイル形式とヘッダー値の確認。</figcaption></figure>
-<figure><a href="{{ '/assets/images/pe-sections.webp' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PEセクション一覧" loading="lazy"></a><figcaption><strong>04. セクション一覧</strong>19個のセクション名とサイズ。</figcaption></figure>
-<figure><a href="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}"><img src="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}" alt="エントリーポイント" loading="lazy"></a><figcaption><strong>05. エントリーポイント</strong>開始アドレスとCOFFに関する出力。</figcaption></figure>
-<figure><a href="{{ '/assets/images/dwarf-sections.webp' | relative_url }}"><img src="{{ '/assets/images/dwarf-sections.webp' | relative_url }}" alt="DWARFセクション" loading="lazy"></a><figcaption><strong>06. DWARF</strong>デバッグ関連セクション名。</figcaption></figure>
-<figure><a href="{{ '/assets/images/api-imports.webp' | relative_url }}"><img src="{{ '/assets/images/api-imports.webp' | relative_url }}" alt="API名の一覧" loading="lazy"></a><figcaption><strong>07. API一覧</strong>実行ファイル内で確認したAPI名。</figcaption></figure>
-<figure><a href="{{ '/assets/images/pe-powershell.webp' | relative_url }}"><img src="{{ '/assets/images/pe-powershell.webp' | relative_url }}" alt="PowerShellの出力" loading="lazy"></a><figcaption><strong>08. PowerShell</strong>ファイル構造の調査に使った出力。</figcaption></figure>
-<figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt="VM上のcalipsoファイル一覧" loading="lazy"></a><figcaption><strong>09. ファイル一覧</strong>VM上で確認した<code>.calipso</code>拡張子。</figcaption></figure>
+<div class="gallery">
+<figure><a href="{{ '/assets/images/sha256-check.webp' | relative_url }}"><img src="{{ '/assets/images/sha256-check.webp' | relative_url }}" alt="PowerShellでのSHA-256出力" loading="lazy"></a><figcaption>1. ファイルハッシュ（SHA-256）</figcaption></figure>
+<figure><a href="{{ '/assets/images/sample-metadata.webp' | relative_url }}"><img src="{{ '/assets/images/sample-metadata.webp' | relative_url }}" alt="解析対象ファイルの基本情報" loading="lazy"></a><figcaption>2. ファイルの基本情報</figcaption></figure>
+<figure><a href="{{ '/assets/images/pe-file-header.webp' | relative_url }}"><img src="{{ '/assets/images/pe-file-header.webp' | relative_url }}" alt="PEヘッダーの値" loading="lazy"></a><figcaption>3. PEヘッダー</figcaption></figure>
+<figure><a href="{{ '/assets/images/pe-sections.webp' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PEセクション一覧" loading="lazy"></a><figcaption>4. 19個のセクションの名前とサイズ</figcaption></figure>
+<figure><a href="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}"><img src="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}" alt="エントリポイントの情報" loading="lazy"></a><figcaption>5. エントリポイント、COFFの出力</figcaption></figure>
+<figure><a href="{{ '/assets/images/dwarf-sections.webp' | relative_url }}"><img src="{{ '/assets/images/dwarf-sections.webp' | relative_url }}" alt="DWARFセクション名" loading="lazy"></a><figcaption>6. DWARFデバッグセクション</figcaption></figure>
+<figure><a href="{{ '/assets/images/api-imports.webp' | relative_url }}"><img src="{{ '/assets/images/api-imports.webp' | relative_url }}" alt="API名の出力" loading="lazy"></a><figcaption>7. 実行ファイルから見つけたAPI名</figcaption></figure>
+<figure><a href="{{ '/assets/images/pe-powershell.webp' | relative_url }}"><img src="{{ '/assets/images/pe-powershell.webp' | relative_url }}" alt="PowerShellコマンドの出力" loading="lazy"></a><figcaption>8. ファイル構造を調べたときのPowerShell出力</figcaption></figure>
+<figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt="VM内の.calipsoファイル一覧" loading="lazy"></a><figcaption>9. VMで見た<code>.calipso</code>拡張子</figcaption></figure>
 </div>
 
-## 資料の出典について
+キャプチャだけでマルウェアの機能を判断してはいません。公開されている実行記録は[Recorded Future Triage](https://tria.ge/261006-nzbfjaay5m/behavioral1)、ファイルシステム制御コードは[Microsoftのドキュメント](https://learn.microsoft.com/ja-jp/windows/win32/api/winioctl/ni-winioctl-fsctl_enum_usn_data)を参考にしました。画面に写っているWindowsや解析ツールのUIは各開発元のものです。
 
-掲載画像は分析中に記録・編集したものです。キャプチャに含まれるWindowsや各解析ツールのインターフェースは、それぞれの開発元に帰属します。
-
-画像だけでマルウェアの機能を断定していません。公開された実行ログは[Recorded Future Triage](https://tria.ge/261006-nzbfjaay5m/behavioral1)、ファイルシステム制御コードの説明は[Microsoftの資料](https://learn.microsoft.com/ja-jp/windows/win32/api/winioctl/ni-winioctl-fsctl_enum_usn_data)を参照しています。
-
-関連記録：[公開資料]({{ '/ja/research/calipso-01/' | relative_url }}) · [静的解析]({{ '/ja/research/calipso-02/' | relative_url }}) · [VMの記録]({{ '/ja/research/calipso-03/' | relative_url }})
+関連記事：[(1) 公開レポート]({{ '/ja/research/calipso-01/' | relative_url }}) · [(2) 静的解析]({{ '/ja/research/calipso-02/' | relative_url }}) · [(3) VMの画面]({{ '/ja/research/calipso-03/' | relative_url }})
