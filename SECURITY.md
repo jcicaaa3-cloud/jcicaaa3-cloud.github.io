@@ -1,19 +1,8 @@
-# Security and Publication Policy
+# 저장소에 올리지 않는 것
 
-This repository contains **defensive research documentation only**.
+- 실행 가능한 악성코드 샘플 (압축 파일 포함)
+- 개인정보, 실제 시스템 로그, 메모리 덤프
+- 개인키, API 토큰, 비밀번호
+- 경로나 계정 정보가 보이는 캡처
 
-## Do not commit
-
-- Executable ransomware or other malware samples, even within ZIP/7z archives
-- Potentially sensitive victim data, personal information, real system logs, or memory dumps
-- RSA private keys, API tokens, credentials, access tokens, encrypted key stores, or passphrases
-- Weapons-grade payloads or techniques intended to cause unauthorised damage
-- Unreviewed screenshots that may expose file paths, account identifiers, or secrets
-
-## What belongs here
-
-- Research notes, evidence tables, source citations, hashes, and non-executable screenshots
-- High-level defensive architecture and test plans using synthetic data
-- Clear separation between public sandbox observations, static code findings, and hypotheses
-
-A `.gitignore` file is **not** an access-control mechanism. Inspect staged changes and repository history before publishing. If secrets have already been committed, rotate or revoke them and clean the history appropriately.
+올리기 전에 staged 변경 사항을 한 번 더 확인합니다. 실수로 키를 커밋했다면 폐기하고 히스토리에서 지웁니다.

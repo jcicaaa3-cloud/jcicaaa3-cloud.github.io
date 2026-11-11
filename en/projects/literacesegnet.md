@@ -3,39 +3,34 @@ layout: page
 lang: en
 title: LiteRaceSegNet
 permalink: /en/projects/literacesegnet/
-description: "LiteRaceSegNet: lightweight road-damage segmentation with measured performance and ablation results"
+description: "LiteRaceSegNet, a lightweight segmentation model for road cracks and potholes: architecture and results"
 ---
-<link rel="stylesheet" href="{{ '/assets/css/research-projects.css' | relative_url }}">
-<div class="rp rp-detail"><p class="rp-eyebrow">COMPUTER VISION / CASE STUDY</p><p class="rp-lead">A lightweight segmentation model for cracks and potholes in road imagery.</p><p><a href="{{ '/en/projects/' | relative_url }}">← Projects</a> · <a href="https://github.com/jcicaaa3-cloud/LiteRaceSegNet-FINAL-">Code / experiments</a></p></div>
+A lightweight segmentation model for road cracks and potholes. Code and experiment data are on [GitHub](https://github.com/jcicaaa3-cloud/LiteRaceSegNet-FINAL-).
 
-## Research problem
+## Problem
 
-Irregularly shaped damage, especially cracks and potholes, is difficult to delineate when a segmentation network must remain small. LiteRaceSegNet is a lightweight CNN-based architecture combining detail and context features with boundary-guided fusion.
+Damage with irregular edges, like cracks and potholes, tends to lose fine detail as the model gets smaller. LiteRaceSegNet is a lightweight CNN that combines detail/context features with boundary-guided fusion.
 
-## Reported validation results
+## Results (V13)
 
-| Metric | Result | Scope |
+| Metric | Value | Scope |
 | --- | ---: | --- |
-| mIoU | **0.8072** | AWS validation protocol |
-| Damage IoU | **0.7113** | Same validation setup |
-| Parameters | **~0.125M** | Model profiling |
-| CUDA inference time | **3.097 ms/image** | Measured CUDA profile |
-| Ablations | **7 configurations** | Controlled comparisons |
-| Aggregated boundary IoU | **0.3212** | 32×32 / 64×64 boundary patches |
+| mIoU | 0.8072 | AWS validation protocol |
+| Damage IoU | 0.7113 | Same validation protocol |
+| Parameters | ~0.125M | Model profile |
+| CUDA latency | 3.097 ms/image | Measured CUDA profile |
+| Ablation | 7 variants | Same conditions |
+| Aggregate IoU near boundaries | 0.3212 | 32×32 / 64×64 boundary patches |
 
-These figures are from the **V13 experiments**. The corresponding repository contains evaluation protocols and comparison results.
+The full evaluation setup and comparisons are in the repository and on the [results portal](https://jcicaaa3-cloud.github.io/LiteRaceSegNet-V13-Portal-Clean/).
 
-## Implementation and validation
+## What I checked
 
-- Checked image–mask pairs, filenames, dimensions, and missing inputs before evaluation.
-- Compared seven model configurations under the same experimental protocol.
-- Overlaid predictions on source images to inspect boundaries and small damaged regions.
-- Reviewed ten visualization examples to assess errors not fully represented by aggregate metrics.
+- Input conditions such as missing images or masks and mismatched names or sizes
+- An ablation running 7 model variants through the same procedure
+- Boundaries and small damaged regions, by overlaying predicted masks on the source images
+- Errors the metrics don't show, using a visualization set of 10 images
 
-## What the results indicate
+Measuring IoU near boundaries separately from overall mIoU showed weaker performance on damage with complex edges, so I also compared predicted masks for 10 images by eye.
 
-Boundary-specific evaluation revealed limitations that are less apparent from overall mIoU alone. Predictions were therefore inspected visually alongside quantitative metrics.
-
-**Links:** [LiteRaceSegNet code](https://github.com/jcicaaa3-cloud/LiteRaceSegNet-FINAL-) · [V13 experiment portal](https://jcicaaa3-cloud.github.io/LiteRaceSegNet-V13-Portal-Clean/)
-
-[← Back to projects]({{ '/en/projects/' | relative_url }})
+[← Projects]({{ '/en/projects/' | relative_url }})
