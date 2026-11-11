@@ -4,6 +4,7 @@ title: "Calipso 분석 (1) 공개 샌드박스 보고서 읽기"
 date: 2026-11-05 11:00:00 +0900
 categories: [Malware-Analysis]
 tags: [ransomware, calipso, windows, sandbox]
+kind: malware
 permalink: /research/calipso-01/
 description: "Calipso 랜섬웨어의 공개 Triage 실행 기록과 PCRisk 자료 정리"
 ---

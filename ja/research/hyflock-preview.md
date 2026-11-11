@@ -3,6 +3,7 @@ layout: post
 lang: ja
 title: "次の解析対象：HYFLOCK"
 date: 2026-11-08 21:05:00 +0900
+kind: malware
 permalink: /ja/research/hyflock-preview/
 description: "Calipsoの次に見るHYFLOCKランサムウェア。Go製Carrier、Rustペイロード、エンジンごとの検知の違い"
 ---

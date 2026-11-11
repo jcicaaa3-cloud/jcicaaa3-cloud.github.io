@@ -3,6 +3,7 @@ layout: post
 lang: en
 title: "Calipso analysis (2): PE structure and Ghidra"
 date: 2026-11-06 13:00:00 +0900
+kind: malware
 permalink: /en/research/calipso-02/
 description: "PE header and sections of the Calipso executable, and a DeviceIoControl 0x900B3 call found in Ghidra"
 ---

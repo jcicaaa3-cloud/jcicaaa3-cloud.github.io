@@ -1,0 +1,52 @@
+---
+layout: default
+permalink: /
+description: "jcicaaa3의 악성코드 분석과 컴퓨터공학 공부 기록"
+---
+<section class="hero">
+  <div>
+    <h1>안녕하세요.<br><em>jcicaaa3</em>입니다.</h1>
+    <p>컴퓨터공학을 공부하고 있습니다. 요즘은 Windows 악성코드를 정적 분석하면서 본 것들을 여기에 적고 있고, AI 쪽으로 했던 프로젝트도 몇 개 정리해 두었습니다.</p>
+  </div>
+  <aside>
+    <a href="mailto:jcicaaa3@gmail.com">이메일</a>
+    <a href="https://github.com/jcicaaa3-cloud" rel="me">GitHub</a>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+  </aside>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>요즘 보고 있는 것</h2><span class="aux">Calipso / Windows 실행 파일</span></div>
+  <div class="feature">
+    <div class="feature-text">
+      <span class="label">2026-11-06 · Calipso 분석 (2)</span>
+      <h3>PE 구조와 Ghidra</h3>
+      <p>해시를 확인하고 PE 헤더와 섹션 19개를 본 다음, Ghidra에서 <code>DeviceIoControl</code>에 <code>0x900B3</code>을 넘기는 코드를 찾았습니다. 어디에 쓰는지는 아직 보는 중입니다.</p>
+      <a class="go" href="{{ '/research/calipso-02/' | relative_url }}">읽기 →</a>
+    </div>
+    <a class="feature-img" href="{{ '/research/calipso-02/' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PowerShell에서 출력한 PE 섹션 19개"></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>최근 글</h2><a href="{{ '/research/' | relative_url }}">전체 글 →</a></div>
+  {% include post-list.html lang='ko' limit=6 %}
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>프로젝트</h2><a href="{{ '/projects/' | relative_url }}">전체 프로젝트 →</a></div>
+  <ul class="item-list">
+    <li><a href="{{ '/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>도로 균열·포트홀 분할용 경량 모델</span></li>
+    <li><a href="{{ '/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>분기 재무 데이터로 위험 신호를 예측하는 ML API</span></li>
+    <li><a href="{{ '/projects/robot-evaluation/' | relative_url }}">로봇 행동 성공·실패 평가</a><span>판정 기준에 따라 평가가 어떻게 달라지는지 본 졸업 연구</span></li>
+  </ul>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>분석 캡처</h2><a href="{{ '/evidence/' | relative_url }}">캡처 더 보기 →</a></div>
+  <div class="shots">
+    <figure><a href="{{ '/assets/images/sha256-check.webp' | relative_url }}"><img src="{{ '/assets/images/sha256-check.webp' | relative_url }}" alt="PowerShell SHA-256 출력" loading="lazy"></a><figcaption>해시 확인</figcaption></figure>
+    <figure><a href="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}"><img src="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}" alt="엔트리 포인트와 COFF 값" loading="lazy"></a><figcaption>엔트리 포인트</figcaption></figure>
+    <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt=".calipso 확장자가 붙은 VM 파일 목록" loading="lazy"></a><figcaption>VM의 파일 목록</figcaption></figure>
+  </div>
+</section>
