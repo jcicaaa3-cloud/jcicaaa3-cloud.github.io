@@ -1,6 +1,7 @@
 ko:
   prefix: ""
   skip: 본문으로 건너뛰기
+  home: 처음
   posts: 글
   projects: 프로젝트
   evidence: 캡처
@@ -10,6 +11,7 @@ ko:
 en:
   prefix: /en
   skip: Skip to content
+  home: Home
   posts: Posts
   projects: Projects
   evidence: Screenshots
@@ -19,6 +21,7 @@ en:
 ja:
   prefix: /ja
   skip: 本文へ移動
+  home: ホーム
   posts: 記事
   projects: プロジェクト
   evidence: キャプチャ
