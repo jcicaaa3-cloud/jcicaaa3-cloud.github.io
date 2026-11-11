@@ -1,11 +1,5 @@
 ---
 layout: default
 ---
-<div class="regular-page">
-  <header class="page-heading">
-    <span class="page-index">jcicaaa3 / {{ page.url | replace: '/', ' ' | strip }}</span>
-    <h1>{{ page.display_title | default: page.title | escape }}</h1>
-    {% if page.intro %}<p>{{ page.intro | escape }}</p>{% endif %}
-  </header>
-  <div class="prose">{{ content }}</div>
-</div>
+<h1>{{ page.title | escape }}</h1>
+{{ content }}

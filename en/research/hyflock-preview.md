@@ -1,26 +1,26 @@
 ---
 layout: post
 lang: en
-title: "Up Next: HYFLOCK — What Do Antivirus Engines Actually Detect?"
-lead: "After Calipso, I will examine HYFLOCK's changing executable structure and why antivirus detection results can differ."
-topic: "Ransomware · Research preview"
+title: "Next up: HYFLOCK"
 date: 2026-11-08 21:05:00 +0900
 permalink: /en/research/hyflock-preview/
-description: "Preview of a static analysis of HYFLOCK ransomware: its Go carrier, embedded Rust payload, and differences in antivirus detections."
+description: "HYFLOCK ransomware is next after Calipso: plans to look at its Go carrier, Rust payload, and differences in antivirus detection"
 ---
-After documenting Calipso, I chose **HYFLOCK** as my next subject. This time, I want to look beyond the executable's structure and examine **why different antivirus products can return different results for the same sample**.
+After Calipso, the next sample I'm looking at is HYFLOCK. Along with the executable's structure, this time I also want to look at why different antivirus products give different results.
 
-According to Check Point's research published on November 4, 2026, an early-October HYFLOCK build used a **Go-based carrier** containing a separate **Rust payload**. Subsequent builds also changed their execution and file-processing behavior.
+HYFLOCK is a ransomware family that has changed builds several times recently. According to [Check Point's analysis](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/) from November 4, the early-October version had a Go-based carrier with a separate Rust payload inside, and later builds changed how it runs and how it handles files.
 
-Detection discrepancies interest me in particular. A missed detection by one engine does not establish that a sample universally evades antivirus protection. **Scan date, engine, and sample build** can all affect the result. I intend to record those details rather than treat a detection count as a permanent property of the malware.
+I'm especially curious about detection. Some engines catch it and some don't, but results can vary with the scan date, the engine's detection method, and the sample version. So when I compare them I plan to record the sample hash and scan date alongside each result.
 
-### What I plan to examine
+## Plan
 
-1. **Executable structure:** PE headers, sections, strings, and imports in the carrier.
-2. **Embedded components:** The relationship between the Go carrier and the payload, using static-analysis evidence.
-3. **Antivirus detection:** Differences across engines, documented alongside sample identifiers and observation dates.
-4. **Comparison with prior research:** A clear distinction between published findings and my own observations.
+1. PE headers, sections, strings, and imports of the carrier
+2. How the Go executable relates to the payload inside it
+3. Differences in detection between engines (with sample hash and scan date)
+4. Comparing what Check Point reported with what I see myself
 
-**This is a preview, not a completed analysis.** I will not distribute live malware samples through this website or GitHub. The series will focus on public research and static-analysis evidence.
+I haven't started the analysis yet, so this is just the plan. I won't upload samples to the blog or GitHub.
 
-**Reference:** [Check Point — HYFLOCK Ransomware Evolves with New Builds and Encryption Weaknesses (2026-11-04)](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/)
+## References
+
+- [Check Point: HYFLOCK Ransomware Evolves with New Builds and Encryption Weaknesses](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/) (2026-11-04)
