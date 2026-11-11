@@ -11,13 +11,9 @@ A sample service that predicts next-quarter risk signals from quarterly financia
 
 1. Data contract: checks required CSV columns, types, and missing values
 2. Features: company-quarter panel, financial ratios, quarter-over-quarter changes
-3. Evaluation: time-ordered splits and walk-forward evaluation to catch leakage
+3. Evaluation: time-ordered splits, walk-forward (so later quarters don't leak into training)
 4. Models: Dummy, Logistic Regression, Random Forest
 5. Service: single and batch prediction in FastAPI, result packets, monitoring report
-
-## Why time-ordered evaluation
-
-If you split quarterly data at random, information from later quarters easily leaks into training. So I split the data in time order and evaluated with walk-forward validation.
 
 The web demo runs on separate example logic, not on the FastAPI backend.
 

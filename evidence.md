@@ -4,7 +4,7 @@ title: 캡처
 permalink: /evidence/
 description: "Calipso 랜섬웨어 분석 중에 남긴 PE 헤더, 섹션, VM 화면 캡처"
 ---
-Calipso를 분석하면서 찍은 화면 9장입니다. 누르면 원본 크기로 열립니다. PowerShell 출력은 파일 구조를 볼 때 남긴 것이고, VM 화면은 찍은 시점의 상태입니다.
+Calipso를 분석하면서 찍은 캡처입니다. 누르면 원본 크기로 열립니다.
 
 <div class="gallery">
 <figure><a href="{{ '/assets/images/sha256-check.webp' | relative_url }}"><img src="{{ '/assets/images/sha256-check.webp' | relative_url }}" alt="PowerShell SHA-256 출력" loading="lazy"></a><figcaption>1. 파일 해시 (SHA-256)</figcaption></figure>
@@ -18,6 +18,4 @@ Calipso를 분석하면서 찍은 화면 9장입니다. 누르면 원본 크기�
 <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt="VM의 .calipso 파일 목록" loading="lazy"></a><figcaption>9. VM에서 본 <code>.calipso</code> 확장자</figcaption></figure>
 </div>
 
-캡처만 보고 악성코드의 기능을 판단하지는 않았습니다. 공개 실행 기록은 [Recorded Future Triage](https://tria.ge/261006-nzbfjaay5m/behavioral1), 파일시스템 제어 코드는 [Microsoft 문서](https://learn.microsoft.com/ko-kr/windows/win32/api/winioctl/ni-winioctl-fsctl_enum_usn_data)를 참고했습니다. 화면에 보이는 Windows와 분석 도구 UI는 각 제작사의 것입니다.
-
-관련 글: [(1) 공개 보고서]({{ '/research/calipso-01/' | relative_url }}) · [(2) 정적 분석]({{ '/research/calipso-02/' | relative_url }}) · [(3) VM 화면]({{ '/research/calipso-03/' | relative_url }})
+글: [(1) 공개 보고서]({{ '/research/calipso-01/' | relative_url }}) · [(2) 정적 분석]({{ '/research/calipso-02/' | relative_url }}) · [(3) VM 화면]({{ '/research/calipso-03/' | relative_url }})
