@@ -5,7 +5,7 @@ title: キャプチャ
 permalink: /ja/evidence/
 description: "Calipsoランサムウェアの解析中に撮ったPEヘッダー、セクション、VM画面のキャプチャ"
 ---
-Calipsoを解析しながら撮った画面9枚です。クリックすると元のサイズで開きます。PowerShellの出力はファイル構造を調べたときのもので、VMの画面は撮影した時点の状態です。
+Calipsoを解析しながら撮ったキャプチャです。クリックすると元のサイズで開きます。
 
 <div class="gallery">
 <figure><a href="{{ '/assets/images/sha256-check.webp' | relative_url }}"><img src="{{ '/assets/images/sha256-check.webp' | relative_url }}" alt="PowerShellでのSHA-256出力" loading="lazy"></a><figcaption>1. ファイルハッシュ（SHA-256）</figcaption></figure>
@@ -19,6 +19,4 @@ Calipsoを解析しながら撮った画面9枚です。クリックすると元
 <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt="VM内の.calipsoファイル一覧" loading="lazy"></a><figcaption>9. VMで見た<code>.calipso</code>拡張子</figcaption></figure>
 </div>
 
-キャプチャだけでマルウェアの機能を判断してはいません。公開されている実行記録は[Recorded Future Triage](https://tria.ge/261006-nzbfjaay5m/behavioral1)、ファイルシステム制御コードは[Microsoftのドキュメント](https://learn.microsoft.com/ja-jp/windows/win32/api/winioctl/ni-winioctl-fsctl_enum_usn_data)を参考にしました。画面に写っているWindowsや解析ツールのUIは各開発元のものです。
-
-関連記事：[(1) 公開レポート]({{ '/ja/research/calipso-01/' | relative_url }}) · [(2) 静的解析]({{ '/ja/research/calipso-02/' | relative_url }}) · [(3) VMの画面]({{ '/ja/research/calipso-03/' | relative_url }})
+記事：[(1) 公開レポート]({{ '/ja/research/calipso-01/' | relative_url }}) · [(2) 静的解析]({{ '/ja/research/calipso-02/' | relative_url }}) · [(3) VMの画面]({{ '/ja/research/calipso-03/' | relative_url }})

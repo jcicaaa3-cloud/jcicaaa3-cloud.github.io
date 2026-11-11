@@ -7,9 +7,7 @@ description: "LiteRaceSegNet, a lightweight segmentation model for road cracks a
 ---
 A lightweight segmentation model for road cracks and potholes. Code and experiment data are on [GitHub](https://github.com/jcicaaa3-cloud/LiteRaceSegNet-FINAL-).
 
-## Problem
-
-Damage with irregular edges, like cracks and potholes, tends to lose fine detail as the model gets smaller. LiteRaceSegNet is a lightweight CNN that combines detail/context features with boundary-guided fusion.
+Cracks and potholes have irregular edges, and the smaller the model, the more that detail gets smeared. So I built it as a lightweight CNN combining detail/context features with boundary-guided fusion.
 
 ## Results (V13)
 
@@ -24,13 +22,11 @@ Damage with irregular edges, like cracks and potholes, tends to lose fine detail
 
 The full evaluation setup and comparisons are in the repository and on the [results portal](https://jcicaaa3-cloud.github.io/LiteRaceSegNet-V13-Portal-Clean/).
 
-## What I checked
+IoU near boundaries came out at 0.3212, well below the overall mIoU. That's where damage with complex edges loses performance, so I also compared 10 images with predicted masks overlaid on the originals by eye.
 
-- Input conditions such as missing images or masks and mismatched names or sizes
-- An ablation running 7 model variants through the same procedure
-- Boundaries and small damaged regions, by overlaying predicted masks on the source images
-- Errors the metrics don't show, using a visualization set of 10 images
+Other things I did:
 
-Measuring IoU near boundaries separately from overall mIoU showed weaker performance on damage with complex edges, so I also compared predicted masks for 10 images by eye.
+- Checked for missing images or masks and mismatched names or sizes
+- Ablation over 7 model variants (same procedure)
 
 [← Projects]({{ '/en/projects/' | relative_url }})

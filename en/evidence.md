@@ -5,7 +5,7 @@ title: Screenshots
 permalink: /en/evidence/
 description: "Screenshots of PE headers, sections, and a VM taken while analyzing Calipso ransomware"
 ---
-Nine screenshots I took while analyzing Calipso. Click one to open it at full size. The PowerShell output is from looking at the file structure; the VM screenshots show the state at the time they were taken.
+Screenshots I took while analyzing Calipso. Click one to open it at full size.
 
 <div class="gallery">
 <figure><a href="{{ '/assets/images/sha256-check.webp' | relative_url }}"><img src="{{ '/assets/images/sha256-check.webp' | relative_url }}" alt="SHA-256 output in PowerShell" loading="lazy"></a><figcaption>1. File hash (SHA-256)</figcaption></figure>
@@ -19,6 +19,4 @@ Nine screenshots I took while analyzing Calipso. Click one to open it at full si
 <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt=".calipso files in the VM" loading="lazy"></a><figcaption>9. <code>.calipso</code> extensions in the VM</figcaption></figure>
 </div>
 
-I didn't draw conclusions about what the malware does from screenshots alone. For publicly recorded behavior I used [Recorded Future Triage](https://tria.ge/261006-nzbfjaay5m/behavioral1), and for the filesystem control code the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/api/winioctl/ni-winioctl-fsctl_enum_usn_data). The Windows and analysis-tool UI in the screenshots belongs to their respective makers.
-
-Related posts: [(1) Public reports]({{ '/en/research/calipso-01/' | relative_url }}) · [(2) Static analysis]({{ '/en/research/calipso-02/' | relative_url }}) · [(3) VM screenshots]({{ '/en/research/calipso-03/' | relative_url }})
+Posts: [(1) Public reports]({{ '/en/research/calipso-01/' | relative_url }}) · [(2) Static analysis]({{ '/en/research/calipso-02/' | relative_url }}) · [(3) VM screenshots]({{ '/en/research/calipso-03/' | relative_url }})
