@@ -3,12 +3,12 @@ layout: default
 lang: ja
 title: ホーム
 permalink: /ja/
-description: "jcicaaa3によるWindowsマルウェアの静的解析とコンピュータ工学の勉強メモ"
+description: "セキュリティとAIを勉強しているjcicaaa3のメモ：マルウェアの静的解析とモデル評価"
 ---
 <section class="hero">
   <div>
     <h1>こんにちは。<br><em>jcicaaa3</em>です。</h1>
-    <p>コンピュータ工学を勉強しています。最近はWindowsマルウェアの静的解析をしながら見たものをここに書いていて、AI関連でやったプロジェクトもいくつか載せています。</p>
+    <p>コンピュータ工学を勉強しています。セキュリティではWindowsマルウェアの静的解析を、AIではモデルを作って評価するプロジェクトをやってきました。これからはこの二つを合わせて、AIでマルウェアを検知し、その検知結果をどう評価するかを勉強するつもりです。</p>
   </div>
   <aside>
     <a href="mailto:jcicaaa3@gmail.com">メール</a>
@@ -36,12 +36,25 @@ description: "jcicaaa3によるWindowsマルウェアの静的解析とコンピ
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>プロジェクト</h2><a href="{{ '/ja/projects/' | relative_url }}">プロジェクト一覧 →</a></div>
-  <ul class="item-list">
-    <li><a href="{{ '/ja/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>道路のひび割れ・ポットホール用の軽量セグメンテーションモデル</span></li>
-    <li><a href="{{ '/ja/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>四半期の財務データからリスクの兆候を予測するML API</span></li>
-    <li><a href="{{ '/ja/projects/robot-evaluation/' | relative_url }}">ロボット動作の成功・失敗評価</a><span>判定基準によって評価がどう変わるかを調べた卒業研究</span></li>
-  </ul>
+  <div class="section-head"><h2>やっていること</h2><a href="{{ '/ja/projects/' | relative_url }}">プロジェクト一覧 →</a></div>
+  <div class="tracks">
+    <div>
+      <h3>セキュリティ</h3>
+      <ul class="item-list">
+        <li><a href="{{ '/ja/research/calipso-02/' | relative_url }}">Calipsoの静的解析</a><span class="tag">進行中</span><span>PE構造、Ghidraで見たWindows APIの呼び出し</span></li>
+        <li><a href="{{ '/ja/research/hyflock-preview/' | relative_url }}">HYFLOCKのエンジン別検知比較</a><span class="tag">予定</span><span>ウイルス対策エンジンで検知結果が分かれる理由</span></li>
+        <li><a href="{{ '/ja/research/hybrid-cryptography/' | relative_url }}">RSA + AESのファイル暗号化ツール</a><span class="tag">設計中</span><span>PowerShellとC#で作るハイブリッド暗号化</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>AI</h3>
+      <ul class="item-list">
+        <li><a href="{{ '/ja/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>道路のひび割れ・ポットホール用の軽量セグメンテーションモデル</span></li>
+        <li><a href="{{ '/ja/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>四半期の財務データからリスクの兆候を予測するML API</span></li>
+        <li><a href="{{ '/ja/projects/robot-evaluation/' | relative_url }}">ロボット動作の成功・失敗評価</a><span>判定基準によって評価がどう変わるかを調べた卒業研究</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="section">

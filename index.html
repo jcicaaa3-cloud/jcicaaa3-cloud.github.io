@@ -1,12 +1,12 @@
 ---
 layout: default
 permalink: /
-description: "jcicaaa3의 악성코드 분석과 컴퓨터공학 공부 기록"
+description: "보안과 AI를 같이 공부하는 jcicaaa3의 기록: 악성코드 정적 분석, 모델 평가"
 ---
 <section class="hero">
   <div>
     <h1>안녕하세요.<br><em>jcicaaa3</em>입니다.</h1>
-    <p>컴퓨터공학을 공부하고 있습니다. 요즘은 Windows 악성코드를 정적 분석하면서 본 것들을 여기에 적고 있고, AI 쪽으로 했던 프로젝트도 몇 개 정리해 두었습니다.</p>
+    <p>컴퓨터공학을 공부하고 있습니다. 보안 쪽으로는 Windows 악성코드를 정적 분석하고 있고, AI 쪽으로는 모델을 만들고 평가하는 프로젝트를 해 왔습니다. 앞으로는 둘을 합쳐서, AI로 악성코드를 탐지하고 그 탐지 결과를 어떻게 평가할지를 공부하려고 합니다.</p>
   </div>
   <aside>
     <a href="mailto:jcicaaa3@gmail.com">이메일</a>
@@ -34,12 +34,25 @@ description: "jcicaaa3의 악성코드 분석과 컴퓨터공학 공부 기록"
 </section>
 
 <section class="section">
-  <div class="section-head"><h2>프로젝트</h2><a href="{{ '/projects/' | relative_url }}">전체 프로젝트 →</a></div>
-  <ul class="item-list">
-    <li><a href="{{ '/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>도로 균열·포트홀 분할용 경량 모델</span></li>
-    <li><a href="{{ '/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>분기 재무 데이터로 위험 신호를 예측하는 ML API</span></li>
-    <li><a href="{{ '/projects/robot-evaluation/' | relative_url }}">로봇 행동 성공·실패 평가</a><span>판정 기준에 따라 평가가 어떻게 달라지는지 본 졸업 연구</span></li>
-  </ul>
+  <div class="section-head"><h2>하고 있는 것</h2><a href="{{ '/projects/' | relative_url }}">전체 프로젝트 →</a></div>
+  <div class="tracks">
+    <div>
+      <h3>보안</h3>
+      <ul class="item-list">
+        <li><a href="{{ '/research/calipso-02/' | relative_url }}">Calipso 정적 분석</a><span class="tag">진행 중</span><span>PE 구조, Ghidra로 본 Windows API 호출</span></li>
+        <li><a href="{{ '/research/hyflock-preview/' | relative_url }}">HYFLOCK 엔진별 탐지 비교</a><span class="tag">예정</span><span>백신 엔진마다 탐지 결과가 갈리는 이유</span></li>
+        <li><a href="{{ '/research/hybrid-cryptography/' | relative_url }}">RSA + AES 파일 암호화 도구</a><span class="tag">설계 중</span><span>PowerShell, C#으로 만드는 하이브리드 암호화</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>AI</h3>
+      <ul class="item-list">
+        <li><a href="{{ '/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>도로 균열·포트홀 분할용 경량 모델</span></li>
+        <li><a href="{{ '/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>분기 재무 데이터로 위험 신호를 예측하는 ML API</span></li>
+        <li><a href="{{ '/projects/robot-evaluation/' | relative_url }}">로봇 행동 성공·실패 평가</a><span>판정 기준에 따라 평가가 어떻게 달라지는지 본 졸업 연구</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="section">
