@@ -30,7 +30,7 @@
 <a class="skip" href="#main">{{ t.skip }}</a>
 <div class="wrap">
 <header class="site-header">
-  <a class="site-title" href="{{ home | relative_url }}">jcicaaa3</a>
+  <a class="brand" href="{{ home | relative_url }}"><strong>jcicaaa3</strong><small>{{ t.tagline }}</small></a>
   <nav>
     <a href="{{ home | relative_url }}"{% if page.url == home %} aria-current="page"{% endif %}>{{ t.home }}</a>
     <a href="{{ t.prefix | append: '/research/' | relative_url }}"{% if page.url contains '/research/' %} aria-current="page"{% endif %}>{{ t.posts }}</a>

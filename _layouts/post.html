@@ -3,9 +3,13 @@ layout: default
 ---
 {%- assign lang = page.lang | default: 'ko' -%}
 {%- assign t = site.data.i18n[lang] -%}
-<article>
+{%- assign list_url = t.prefix | append: '/research/' -%}
+<article class="narrow">
+<header class="page-head">
+  <a class="back" href="{{ list_url | relative_url }}">{{ t.back }}</a>
+  <p class="meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y-%m-%d' }}</time>{% if page.kind %} · {{ t.kinds[page.kind] }}{% endif %}</p>
   <h1>{{ page.title | escape }}</h1>
-  <p class="meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%Y-%m-%d' }}</time></p>
+</header>
 {{ content }}
+<p class="back-bottom"><a href="{{ list_url | relative_url }}">{{ t.back }}</a></p>
 </article>
-<p class="back"><a href="{{ t.prefix | append: '/research/' | relative_url }}">{{ t.back }}</a></p>

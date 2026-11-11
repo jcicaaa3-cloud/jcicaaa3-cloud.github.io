@@ -3,6 +3,7 @@ layout: post
 lang: ja
 title: "RSA + AESのハイブリッド暗号化ツール設計メモ"
 date: 2026-11-06 15:00:00 +0900
+kind: crypto
 permalink: /ja/research/hybrid-cryptography/
 description: "ファイルはAESで、AESの鍵はRSA公開鍵で暗号化するツールの構成とテスト項目"
 ---

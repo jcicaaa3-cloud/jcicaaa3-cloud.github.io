@@ -4,6 +4,7 @@ title: "다음 분석 대상: HYFLOCK"
 date: 2026-11-08 21:05:00 +0900
 categories: [Malware-Analysis]
 tags: [ransomware, HYFLOCK, malware-analysis, static-analysis]
+kind: malware
 permalink: /research/hyflock-preview/
 description: "Calipso 다음으로 볼 HYFLOCK 랜섬웨어. Go Carrier와 Rust 페이로드 구조, 엔진별 탐지 차이"
 ---

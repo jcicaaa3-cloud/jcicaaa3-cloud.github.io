@@ -4,6 +4,7 @@ title: "Calipso 분석 (2) PE 구조와 Ghidra"
 date: 2026-11-06 13:00:00 +0900
 categories: [Malware-Analysis]
 tags: [calipso, ghidra, pe, ntfs, static-analysis]
+kind: malware
 permalink: /research/calipso-02/
 description: "Calipso 실행 파일의 PE 헤더와 섹션, Ghidra에서 찾은 DeviceIoControl 0x900B3 호출"
 ---

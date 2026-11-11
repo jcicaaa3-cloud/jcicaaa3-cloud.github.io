@@ -3,6 +3,7 @@ layout: post
 lang: en
 title: "Calipso analysis (3): screenshots from the VM"
 date: 2026-11-06 16:00:00 +0900
+kind: malware
 permalink: /en/research/calipso-03/
 description: "Screenshot of .calipso file names left in a virtual machine"
 ---

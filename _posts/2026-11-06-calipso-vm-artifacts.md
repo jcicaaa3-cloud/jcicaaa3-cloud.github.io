@@ -4,6 +4,7 @@ title: "Calipso 분석 (3) VM에서 남긴 화면"
 date: 2026-11-06 16:00:00 +0900
 categories: [Malware-Analysis]
 tags: [calipso, vm, file-extension, ransomware]
+kind: malware
 permalink: /research/calipso-03/
 description: "가상머신에 남은 .calipso 파일 목록 캡처"
 ---
