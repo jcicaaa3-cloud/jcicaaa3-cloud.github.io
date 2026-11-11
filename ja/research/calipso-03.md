@@ -3,6 +3,7 @@ layout: post
 lang: ja
 title: "Calipso解析 (3) VMに残った画面"
 date: 2026-11-06 16:00:00 +0900
+kind: malware
 permalink: /ja/research/calipso-03/
 description: "仮想マシンに残った.calipsoのファイル一覧のキャプチャ"
 ---

@@ -1,0 +1,54 @@
+---
+layout: default
+lang: ja
+title: ホーム
+permalink: /ja/
+description: "jcicaaa3によるWindowsマルウェアの静的解析とコンピュータ工学の勉強メモ"
+---
+<section class="hero">
+  <div>
+    <h1>こんにちは。<br><em>jcicaaa3</em>です。</h1>
+    <p>コンピュータ工学を勉強しています。最近はWindowsマルウェアの静的解析をしながら見たものをここに書いていて、AI関連でやったプロジェクトもいくつか載せています。</p>
+  </div>
+  <aside>
+    <a href="mailto:jcicaaa3@gmail.com">メール</a>
+    <a href="https://github.com/jcicaaa3-cloud" rel="me">GitHub</a>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+  </aside>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>最近見ているもの</h2><span class="aux">Calipso / Windows実行ファイル</span></div>
+  <div class="feature">
+    <div class="feature-text">
+      <span class="label">2026-11-06 · Calipso解析 (2)</span>
+      <h3>PE構造とGhidra</h3>
+      <p>ハッシュを確認し、PEヘッダーと19個のセクションを見てから、Ghidraで<code>DeviceIoControl</code>に<code>0x900B3</code>を渡しているコードを見つけました。何に使っているのかはまだ調べているところです。</p>
+      <a class="go" href="{{ '/ja/research/calipso-02/' | relative_url }}">読む →</a>
+    </div>
+    <a class="feature-img" href="{{ '/ja/research/calipso-02/' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PowerShellで出力した19個のPEセクション"></a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>最近の記事</h2><a href="{{ '/ja/research/' | relative_url }}">記事一覧 →</a></div>
+  {% include post-list.html lang='ja' limit=6 %}
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>プロジェクト</h2><a href="{{ '/ja/projects/' | relative_url }}">プロジェクト一覧 →</a></div>
+  <ul class="item-list">
+    <li><a href="{{ '/ja/projects/literacesegnet/' | relative_url }}">LiteRaceSegNet</a><span>道路のひび割れ・ポットホール用の軽量セグメンテーションモデル</span></li>
+    <li><a href="{{ '/ja/projects/financial-risk/' | relative_url }}">Financial Risk Scoring</a><span>四半期の財務データからリスクの兆候を予測するML API</span></li>
+    <li><a href="{{ '/ja/projects/robot-evaluation/' | relative_url }}">ロボット動作の成功・失敗評価</a><span>判定基準によって評価がどう変わるかを調べた卒業研究</span></li>
+  </ul>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>解析のキャプチャ</h2><a href="{{ '/ja/evidence/' | relative_url }}">もっと見る →</a></div>
+  <div class="shots">
+    <figure><a href="{{ '/assets/images/sha256-check.webp' | relative_url }}"><img src="{{ '/assets/images/sha256-check.webp' | relative_url }}" alt="PowerShellでのSHA-256出力" loading="lazy"></a><figcaption>ハッシュの確認</figcaption></figure>
+    <figure><a href="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}"><img src="{{ '/assets/images/pe-entrypoint.webp' | relative_url }}" alt="エントリポイントとCOFFの値" loading="lazy"></a><figcaption>エントリポイント</figcaption></figure>
+    <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt=".calipso拡張子が付いたVMのファイル一覧" loading="lazy"></a><figcaption>VMのファイル一覧</figcaption></figure>
+  </div>
+</section>

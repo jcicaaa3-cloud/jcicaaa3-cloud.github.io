@@ -3,6 +3,7 @@ layout: post
 lang: ja
 title: "Calipso解析 (1) 公開サンドボックスのレポートを読む"
 date: 2026-11-05 11:00:00 +0900
+kind: malware
 permalink: /ja/research/calipso-01/
 description: "Calipsoランサムウェアの公開Triage実行記録とPCRiskの記事のメモ"
 ---

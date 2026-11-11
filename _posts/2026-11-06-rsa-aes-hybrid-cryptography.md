@@ -4,6 +4,7 @@ title: "RSA + AES 하이브리드 암호화 도구 설계 메모"
 date: 2026-11-06 15:00:00 +0900
 categories: [Cryptography]
 tags: [rsa, aes, cryptography, powershell]
+kind: crypto
 permalink: /research/hybrid-cryptography/
 description: "파일은 AES로, AES 키는 RSA 공개키로 암호화하는 도구의 구조와 테스트 목록"
 ---

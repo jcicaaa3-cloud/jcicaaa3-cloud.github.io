@@ -3,6 +3,7 @@ layout: post
 lang: en
 title: "Next up: HYFLOCK"
 date: 2026-11-08 21:05:00 +0900
+kind: malware
 permalink: /en/research/hyflock-preview/
 description: "HYFLOCK ransomware is next after Calipso: Go carrier, Rust payload, and differences in detection between engines"
 ---
