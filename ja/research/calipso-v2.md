@@ -2,7 +2,7 @@
 layout: post
 lang: ja
 title: "Calipso解析 v2.0：暗号化の仕組みと実行の流れ"
-date: 2026-11-12 18:00:00 +0900
+date: 2026-11-12 12:00:00 +0900
 kind: malware
 permalink: /ja/research/calipso-v2/
 description: "Calipsoランサムウェアの静的解析まとめ。XChaCha20 + RSA-4096 OAEP、先頭5MBの部分暗号化、MFTによるファイル探索、復旧妨害、IOCとYARAルール"
