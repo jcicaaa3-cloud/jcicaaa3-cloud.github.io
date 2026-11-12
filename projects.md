@@ -8,11 +8,11 @@ description: "jcicaaa3의 보안 분석과 AI 프로젝트: Calipso 정적 분�
 
 ## 보안
 
-### Calipso 정적 분석 <small>진행 중</small>
+### Calipso 정적 분석 <small>v2.0</small>
 
-해시 확인, PE 섹션과 엔트리 포인트, Ghidra에서 찾은 Windows API 호출을 글로 정리하고 있습니다.
+Ghidra로 암호화 구조(XChaCha20 + RSA-4096 OAEP), 파일 탐색(MFT 열거), 복구 방해, 프로세스 종료를 분석하고 IOC와 YARA 룰을 정리했습니다.
 
-[관련 글]({{ '/research/' | relative_url }}) · [캡처]({{ '/evidence/' | relative_url }})
+[분석 v2.0]({{ '/research/calipso-v2/' | relative_url }}) · [캡처]({{ '/evidence/' | relative_url }})
 
 ### HYFLOCK 엔진별 탐지 비교 <small>예정</small>
 
