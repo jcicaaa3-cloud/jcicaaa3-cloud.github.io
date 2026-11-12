@@ -20,7 +20,7 @@ SHA-256  9f77af05e8b3112eb13777853c7397442d8467549c3bce01f2639305f98e96ed
 
 ## PE 헤더, 섹션
 
-x64 PE이고 섹션은 19개입니다. `.text`, `.data`, `.rdata` 말고도 `.debug_*` 섹션이 여러 개 남아 있는데, DWARF 디버그 정보로 보입니다.
+x64 PE이고 섹션은 19개입니다. `.text`, `.data`, `.rdata` 말고도 `.debug_*` 섹션이 여러 개 남아 있는데, DWARF 디버그 정보입니다.
 
 <figure><a href="{{ '/assets/images/pe-file-header.webp' | relative_url }}"><img src="{{ '/assets/images/pe-file-header.webp' | relative_url }}" loading="lazy" alt="PowerShell에서 본 PE 파일 헤더 값"></a><figcaption>PE 헤더</figcaption></figure>
 
