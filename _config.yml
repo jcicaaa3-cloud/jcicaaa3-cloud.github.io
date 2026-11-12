@@ -8,6 +8,11 @@ encoding: UTF-8
 markdown: kramdown
 highlighter: rouge
 theme: minima
+author: jcicaaa3
+social:
+  name: jcicaaa3
+  links:
+    - https://github.com/jcicaaa3-cloud
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -23,6 +28,10 @@ defaults:
     values:
       lang: ja
       locale: ja_JP
+  - scope:
+      path: "google570f1d5f4c140cbc.html"
+    values:
+      sitemap: false
 exclude:
   - README.md
   - Gemfile
