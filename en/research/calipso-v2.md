@@ -28,7 +28,7 @@ A consolidated write-up of my static analysis of Calipso.exe in Ghidra 12.2. It 
 | Build | MinGW-w64 GCC, Crypto++ statically linked (CMake build path `/src/build/_deps/cryptopp-cmake-build/` left in) |
 | Tools | Ghidra 12.2, static only |
 
-There are no function names (`FUN_`), so I worked backwards from Windows API calls. The leftover Crypto++ class names (RTTI) and debug log strings helped a lot with identifying algorithms and stages.
+There are no function names (`FUN_`), so I worked backwards from Windows API calls. Algorithms and stages were identified from the leftover Crypto++ class names (RTTI) and debug log strings.
 
 ## Execution flow
 
@@ -68,7 +68,7 @@ if (0x500000 < fileSize) toRead = 0x500000;                 // first 5MiB only
 FUN_1400145f0(&cipher, sessionKey, 0x20, nonce, 0x18);      // 32B key, 24B nonce
 ```
 
-Why XChaCha20: the key and nonce lengths match the spec, it's a stream cipher with no size change, and the binary has `XChaCha20_Policy` and `SymmetricCipherFinal<…XChaCha20_Info>` RTTI with no Salsa20 variants.
+32B key, 24B nonce, a stream cipher with no size change, and `XChaCha20_Policy` and `SymmetricCipherFinal<…XChaCha20_Info>` RTTI in the binary. No Salsa20 RTTI.
 
 ### Encrypted file layout
 
@@ -81,7 +81,7 @@ Why XChaCha20: the key and nonce lengths match the spec, it's a stream cipher wi
 
 ### Session key and public key
 
-- `FUN_140004ab0`: generates the 32-byte session key with a Crypto++ RNG seeded from `CryptGenRandom`. Nothing weak about the key generation itself.
+- `FUN_140004ab0`: generates the 32-byte session key with a Crypto++ RNG seeded from `CryptGenRandom`.
 - `FUN_14000d250`: encrypts the session key with the embedded public key. Output size equals the modulus size (512B). The only RSA encryptor class in the binary is `RSAES<OAEP<SHA1>>`.
 - The public key is stored at `0x1402EB9C0` as 800 bytes of PEM text (`BEGIN PUBLIC KEY`). The main routine reads it line by line, drops the header and footer lines containing `-----`, and Base64-decodes the rest.
 
@@ -94,7 +94,7 @@ Why XChaCha20: the key and nonce lengths match the spec, it's a stream cipher wi
 
 - The session key is protected by RSA-4096 OAEP and can't be recovered without the attacker's private key.
 - Anything past 5MiB is untouched. Large files like videos, databases, and disk images can be partly salvaged.
-- The main routine frees the session key and RSA ciphertext without zeroing them (end of `FUN_14000d810`), unlike the file encryption function, which does clear its cipher state. If the session key turns up in a process memory dump taken during or right after the infection, every file locked by that run can be decrypted, since there's one key per run.
+- The main routine frees the session key and RSA ciphertext without zeroing them (end of `FUN_14000d810`). The file encryption function does clear its cipher state. If the session key turns up in a memory dump taken during or right after the infection, every file from that run can be decrypted, since there's one key per run.
 
 ## File discovery (`FUN_1400098d0`)
 
@@ -125,7 +125,7 @@ Otherwise (not NTFS, a network path, or MFT enumeration failed) it falls back to
 
 In post (2) I wrote that I didn't know what `0x900B3` was for. It's how it gets the whole file list of a local NTFS drive in one go. When this path runs, the debug log prints `[+] MFT: …`.
 
-This matters for behavior-based detection. Typical ransomware calls `FindFirstFileW`/`FindNextFileW` over and over for every folder, while MFT enumeration is done in a handful of `DeviceIoControl` calls per volume (up to 64MB per call). To a detection model that uses API call frequency as a feature, the pattern looks very different.
+From the detection side: typical ransomware calls `FindFirstFileW`/`FindNextFileW` over and over for every folder, while MFT enumeration is done in a handful of `DeviceIoControl` calls per volume (up to 64MB per call). A model that uses API call frequency sees a completely different pattern.
 
 ## Before encryption
 
@@ -135,7 +135,7 @@ Enables `SeDebugPrivilege`, `SeBackupPrivilege`, and `SeRestorePrivilege`: the p
 
 ### Process killing (`FUN_140005bb0`)
 
-It walks the running processes and calls `TerminateProcess` on any whose lowercased name contains none of the allowlist strings. The list sits at `0x1401ED000` with 72 entries. So it carries a "keep alive" list, not a kill list, and shuts down everything else. Office, databases, browsers, backup software, and third-party antivirus all close at once, which is likely the first thing a victim notices.
+It walks the running processes and calls `TerminateProcess` on any whose lowercased name contains none of the allowlist strings. The list sits at `0x1401ED000` with 72 entries. It's a keep-alive list, not a kill list, so Office, databases, browsers, backup software, and third-party antivirus all get killed.
 
 | Category | Kept alive (partial) |
 | --- | --- |
@@ -235,12 +235,6 @@ Either condition is enough for a hit. If a build ships with the debug strings st
 | T1059.003 Windows Command Shell | `cmd.exe /C` |
 | T1112 Modify Registry | wallpaper policy keys |
 | T1491.001 Internal Defacement | locked wallpaper |
-
-## Assessment
-
-The crypto design is solid. It uses a well-tested library as is, key generation, key protection, and per-file nonces are all fine, and partial encryption, multithreading, and MFT enumeration show it was built for speed.
-
-On the other hand there's almost nothing to slow down analysis. No packing or obfuscation, and the debug logging feature, log messages, Crypto++ class names, and build path are all still in there. Not wiping the session key from memory fits the same picture.
 
 ## Next
 
