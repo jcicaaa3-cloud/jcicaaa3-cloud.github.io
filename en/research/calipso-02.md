@@ -17,7 +17,7 @@ SHA-256  9f77af05e8b3112eb13777853c7397442d8467549c3bce01f2639305f98e96ed
 
 ## PE header, sections
 
-x64 PE with 19 sections. Besides `.text`, `.data`, and `.rdata`, several `.debug_*` sections are still there, which look like DWARF debug info.
+x64 PE with 19 sections. Besides `.text`, `.data`, and `.rdata`, several `.debug_*` sections with DWARF debug info are still there.
 
 <figure><a href="{{ '/assets/images/pe-file-header.webp' | relative_url }}"><img src="{{ '/assets/images/pe-file-header.webp' | relative_url }}" loading="lazy" alt="PE file header values in PowerShell"></a><figcaption>PE header</figcaption></figure>
 
