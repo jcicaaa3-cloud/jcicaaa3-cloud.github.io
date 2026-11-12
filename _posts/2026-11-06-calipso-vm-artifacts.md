@@ -8,6 +8,8 @@ kind: malware
 permalink: /research/calipso-03/
 description: "가상머신에 남은 .calipso 파일 목록 캡처"
 ---
+> 초기 기록입니다. 이후 분석까지 합친 정리본은 [Calipso 분석 v2.0]({{ '/research/calipso-v2/' | relative_url }})에 있습니다.
+
 11월 6일 VM 캡처입니다. 파일 이름 끝에 `.calipso`가 붙어 있었고, 바탕화면에도 Calipso 안내가 떠 있었습니다.
 
 <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt="VM에서 .calipso 확장자가 붙은 파일 목록" loading="lazy"></a><figcaption><code>.calipso</code>가 붙은 파일들</figcaption></figure>

@@ -8,6 +8,8 @@ kind: malware
 permalink: /research/calipso-02/
 description: "Calipso 실행 파일의 PE 헤더와 섹션, Ghidra에서 찾은 DeviceIoControl 0x900B3 호출"
 ---
+> 초기 기록입니다. 이후 분석까지 합친 정리본은 [Calipso 분석 v2.0]({{ '/research/calipso-v2/' | relative_url }})에 있습니다.
+
 [지난 글]({{ '/research/calipso-01/' | relative_url }})에서는 Triage 보고서만 봤고, 이번에는 실행 파일을 직접 열었습니다. 해시 확인, PE 헤더와 섹션, Ghidra 순서로 봤습니다. 캡처는 11월 6일에 찍은 것이고 샘플 파일은 올리지 않습니다.
 
 ```text
@@ -18,7 +20,7 @@ SHA-256  9f77af05e8b3112eb13777853c7397442d8467549c3bce01f2639305f98e96ed
 
 ## PE 헤더, 섹션
 
-x64 PE이고 섹션은 19개입니다. `.text`, `.data`, `.rdata` 말고도 `.debug_*` 섹션이 여러 개 남아 있는데, DWARF 디버그 정보로 보입니다.
+x64 PE이고 섹션은 19개입니다. `.text`, `.data`, `.rdata` 말고도 `.debug_*` 섹션이 여러 개 남아 있는데, DWARF 디버그 정보입니다.
 
 <figure><a href="{{ '/assets/images/pe-file-header.webp' | relative_url }}"><img src="{{ '/assets/images/pe-file-header.webp' | relative_url }}" loading="lazy" alt="PowerShell에서 본 PE 파일 헤더 값"></a><figcaption>PE 헤더</figcaption></figure>
 

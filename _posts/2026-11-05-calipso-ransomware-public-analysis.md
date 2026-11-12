@@ -8,6 +8,8 @@ kind: malware
 permalink: /research/calipso-01/
 description: "Calipso 랜섬웨어의 공개 Triage 실행 기록과 PCRisk 자료 정리"
 ---
+> 초기 기록입니다. 이후 분석까지 합친 정리본은 [Calipso 분석 v2.0]({{ '/research/calipso-v2/' | relative_url }})에 있습니다.
+
 Calipso는 2026년 10월에 공개 보고된 랜섬웨어입니다. 샘플을 직접 열기 전에 Triage 실행 기록과 PCRisk 글부터 읽었습니다. 이 글의 실행 기록은 전부 Triage(Windows 10)에서 본 것입니다.
 
 | 항목 | 값 |
