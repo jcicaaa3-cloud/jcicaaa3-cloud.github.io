@@ -7,7 +7,7 @@ description: "About jcicaaa3: a computer engineering undergraduate studying secu
 ---
 I'm a computer engineering student at Hankuk University of Foreign Studies, with a double major in Northeast Asian Diplomacy and Commerce.
 
-I study security and AI side by side. On the security side, I take apart Windows PE files in Ghidra and check things with Python and PowerShell as I do static analysis of malware. On the AI side, I've built a computer vision model and a machine learning service, and did my graduation research on evaluating robot actions.
+I study security and AI side by side. On the security side, I take apart Windows PE files in Ghidra and check things with Python and PowerShell as I do static analysis of malware. On the AI side, I've built a computer vision model and a machine learning service, and spent the spring semester on a research project evaluating robot actions.
 
 ## Where I want to take this
 

@@ -41,8 +41,8 @@ Go製CarrierとRustペイロードの構造を見て、ウイルス対策エン�
 
 [詳しく]({{ '/ja/projects/financial-risk/' | relative_url }}) · [GitHub](https://github.com/jcicaaa3-cloud/financial-risk-scoring-service-FINAL)
 
-### ロボット動作の成功・失敗評価 <small>まとめ中</small>
+### ロボット動作の成功・失敗評価 <small>2026年1学期</small>
 
-ロボットの動作を何を基準に成功・失敗と判定するか、基準によって結果がどう変わるかを扱った卒業研究です。実験80回、分析事例874件です。
+ロボットの動作を何を基準に成功・失敗と判定するか、基準によって結果がどう変わるかを扱った研究プロジェクトです。実験80回、分析事例874件です。
 
 [詳しく]({{ '/ja/projects/robot-evaluation/' | relative_url }})

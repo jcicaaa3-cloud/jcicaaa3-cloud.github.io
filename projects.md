@@ -40,8 +40,8 @@ Go Carrier와 Rust 페이로드 구조를 보고, 백신 엔진마다 탐지 결
 
 [자세히]({{ '/projects/financial-risk/' | relative_url }}) · [GitHub](https://github.com/jcicaaa3-cloud/financial-risk-scoring-service-FINAL)
 
-### 로봇 행동 성공·실패 평가 <small>정리 중</small>
+### 로봇 행동 성공·실패 평가 <small>2026년 1학기</small>
 
-로봇이 한 행동을 무엇을 기준으로 성공 또는 실패로 볼지, 기준에 따라 결과가 어떻게 달라지는지 다룬 졸업 연구입니다. 실험 80회, 분석 사례 874건입니다.
+로봇이 한 행동을 무엇을 기준으로 성공 또는 실패로 볼지, 기준에 따라 결과가 어떻게 달라지는지 다룬 연구 프로젝트입니다. 실험 80회, 분석 사례 874건입니다.
 
 [자세히]({{ '/projects/robot-evaluation/' | relative_url }})

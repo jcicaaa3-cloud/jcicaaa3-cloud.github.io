@@ -41,8 +41,8 @@ An ML service that predicts next-quarter risk signals from quarterly financial d
 
 [Details]({{ '/en/projects/financial-risk/' | relative_url }}) · [GitHub](https://github.com/jcicaaa3-cloud/financial-risk-scoring-service-FINAL)
 
-### Robot task success/failure evaluation <small>writing up</small>
+### Robot task success/failure evaluation <small>spring 2026</small>
 
-My graduation research on what criteria to use when calling a robot's action a success or a failure, and how the results change with the criteria. 80 runs and 874 analyzed cases.
+A research project on what criteria to use when calling a robot's action a success or a failure, and how the results change with the criteria. 80 runs and 874 analyzed cases.
 
 [Details]({{ '/en/projects/robot-evaluation/' | relative_url }})
