@@ -7,6 +7,8 @@ kind: malware
 permalink: /ja/research/calipso-02/
 description: "Calipsoの実行ファイルのPEヘッダーとセクション、Ghidraで見つけたDeviceIoControl 0x900B3の呼び出し"
 ---
+> 初期の記録です。その後の解析までまとめたものは[Calipso解析 v2.0]({{ '/ja/research/calipso-v2/' | relative_url }})にあります。
+
 [前回]({{ '/ja/research/calipso-01/' | relative_url }})はTriageのレポートだけを見ましたが、今回は実行ファイルを開きました。ハッシュの確認、PEヘッダーとセクション、Ghidraの順です。キャプチャは11月6日に撮ったもので、サンプルファイルは公開していません。
 
 ```text

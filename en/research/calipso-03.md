@@ -7,6 +7,8 @@ kind: malware
 permalink: /en/research/calipso-03/
 description: "Screenshot of .calipso file names left in a virtual machine"
 ---
+> Early notes. The consolidated write-up with everything after this is [Calipso analysis v2.0]({{ '/en/research/calipso-v2/' | relative_url }}).
+
 VM screenshots from November 6. File names ended in `.calipso`, and a Calipso notice was up on the desktop.
 
 <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt="File list in the VM with .calipso extensions" loading="lazy"></a><figcaption>Files with <code>.calipso</code> appended</figcaption></figure>
