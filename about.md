@@ -23,4 +23,5 @@ Ghidra · YARA · MITRE ATT&CK · Python · PowerShell · Git
 
 ## 연락
 
+- 이메일: [jcicaaa3@gmail.com](mailto:jcicaaa3@gmail.com)
 - GitHub: [jcicaaa3-cloud](https://github.com/jcicaaa3-cloud)
