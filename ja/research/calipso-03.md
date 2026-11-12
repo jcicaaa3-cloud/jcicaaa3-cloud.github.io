@@ -7,6 +7,8 @@ kind: malware
 permalink: /ja/research/calipso-03/
 description: "仮想マシンに残った.calipsoのファイル一覧のキャプチャ"
 ---
+> 初期の記録です。その後の解析までまとめたものは[Calipso解析 v2.0]({{ '/ja/research/calipso-v2/' | relative_url }})にあります。
+
 11月6日のVMのキャプチャです。ファイル名の末尾に`.calipso`が付いていて、デスクトップにもCalipsoの案内が出ていました。
 
 <figure><a href="{{ '/assets/images/calipso-files.webp' | relative_url }}"><img src="{{ '/assets/images/calipso-files.webp' | relative_url }}" alt="VM内で.calipso拡張子が付いたファイル一覧" loading="lazy"></a><figcaption><code>.calipso</code>が付いたファイル</figcaption></figure>

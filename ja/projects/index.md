@@ -9,11 +9,11 @@ description: "jcicaaa3のセキュリティとAIのプロジェクト：Calipso�
 
 ## セキュリティ
 
-### Calipsoの静的解析 <small>進行中</small>
+### Calipsoの静的解析 <small>v2.0</small>
 
-ハッシュの確認、PEセクションとエントリポイント、Ghidraで見つけたWindows APIの呼び出しを記事にまとめています。
+Ghidraで暗号化の仕組み（XChaCha20 + RSA-4096 OAEP）、ファイル探索（MFTの列挙）、復旧妨害、プロセス終了を解析し、IOCとYARAルールをまとめました。
 
-[関連記事]({{ '/ja/research/' | relative_url }}) · [キャプチャ]({{ '/ja/evidence/' | relative_url }})
+[解析 v2.0]({{ '/ja/research/calipso-v2/' | relative_url }}) · [キャプチャ]({{ '/ja/evidence/' | relative_url }})
 
 ### HYFLOCKのエンジン別検知比較 <small>予定</small>
 

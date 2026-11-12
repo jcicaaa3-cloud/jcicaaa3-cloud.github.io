@@ -20,12 +20,12 @@ description: "jcicaaa3 studies security and AI: malware static analysis and mode
   <div class="section-head"><h2>What I'm looking at</h2><span class="aux">Calipso / Windows executables</span></div>
   <div class="feature">
     <div class="feature-text">
-      <span class="label">2026-11-06 · Calipso analysis (2)</span>
-      <h3>PE structure and Ghidra</h3>
-      <p>I checked the hash, went through the PE header and its 19 sections, then found code in Ghidra that passes <code>0x900B3</code> to <code>DeviceIoControl</code>. Still working out what it's used for.</p>
-      <a class="go" href="{{ '/en/research/calipso-02/' | relative_url }}">Read →</a>
+      <span class="label">2026-11-12 · Calipso analysis v2.0</span>
+      <h3>Encryption and execution flow</h3>
+      <p>XChaCha20 over the first 5MB of each file, with one session key per run wrapped in RSA-4096 and appended. Local NTFS drives are enumerated straight from the MFT. IOCs and a YARA rule included.</p>
+      <a class="go" href="{{ '/en/research/calipso-v2/' | relative_url }}">Read →</a>
     </div>
-    <a class="feature-img" href="{{ '/en/research/calipso-02/' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PowerShell output listing 19 PE sections"></a>
+    <a class="feature-img" href="{{ '/en/research/calipso-v2/' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PowerShell output listing 19 PE sections"></a>
   </div>
 </section>
 
@@ -40,7 +40,7 @@ description: "jcicaaa3 studies security and AI: malware static analysis and mode
     <div>
       <h3>Security</h3>
       <ul class="item-list">
-        <li><a href="{{ '/en/research/calipso-02/' | relative_url }}">Calipso static analysis</a><span class="tag">ongoing</span><span>PE structure, Windows API calls seen in Ghidra</span></li>
+        <li><a href="{{ '/en/research/calipso-v2/' | relative_url }}">Calipso static analysis</a><span class="tag">v2.0</span><span>Encryption design, file discovery, recovery inhibition, IOCs and YARA</span></li>
         <li><a href="{{ '/en/research/hyflock-preview/' | relative_url }}">HYFLOCK detection comparison</a><span class="tag">planned</span><span>Why antivirus engines disagree on the same sample</span></li>
         <li><a href="{{ '/en/research/hybrid-cryptography/' | relative_url }}">RSA + AES file encryption tool</a><span class="tag">in design</span><span>Hybrid encryption in PowerShell and C#</span></li>
       </ul>

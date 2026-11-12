@@ -7,6 +7,8 @@ kind: malware
 permalink: /en/research/calipso-02/
 description: "PE header and sections of the Calipso executable, and a DeviceIoControl 0x900B3 call found in Ghidra"
 ---
+> Early notes. The consolidated write-up with everything after this is [Calipso analysis v2.0]({{ '/en/research/calipso-v2/' | relative_url }}).
+
 In the [last post]({{ '/en/research/calipso-01/' | relative_url }}) I only looked at the Triage report. This time I opened the executable: hash check, then PE header and sections, then Ghidra. Screenshots are from November 6, and the sample isn't uploaded anywhere.
 
 ```text

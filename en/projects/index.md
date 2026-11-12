@@ -9,11 +9,11 @@ Split into security and AI. Code and experiment data are in each GitHub reposito
 
 ## Security
 
-### Calipso static analysis <small>ongoing</small>
+### Calipso static analysis <small>v2.0</small>
 
-Writing up the hash check, PE sections and entry point, and the Windows API calls I found in Ghidra.
+Analyzed the encryption design (XChaCha20 + RSA-4096 OAEP), file discovery (MFT enumeration), recovery inhibition, and process killing in Ghidra, and wrote up IOCs and a YARA rule.
 
-[Posts]({{ '/en/research/' | relative_url }}) · [Screenshots]({{ '/en/evidence/' | relative_url }})
+[Analysis v2.0]({{ '/en/research/calipso-v2/' | relative_url }}) · [Screenshots]({{ '/en/evidence/' | relative_url }})
 
 ### HYFLOCK detection comparison <small>planned</small>
 
