@@ -28,5 +28,4 @@ AIでマルウェアを検知すること、そしてその検知結果をどう
 
 ## 連絡先
 
-- メール：[jcicaaa3@gmail.com](mailto:jcicaaa3@gmail.com)
 - GitHub：[jcicaaa3-cloud](https://github.com/jcicaaa3-cloud)
