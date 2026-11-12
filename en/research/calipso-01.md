@@ -7,6 +7,8 @@ kind: malware
 permalink: /en/research/calipso-01/
 description: "Notes from the public Triage run and PCRisk write-up of the Calipso ransomware"
 ---
+> Early notes. The consolidated write-up with everything after this is [Calipso analysis v2.0]({{ '/en/research/calipso-v2/' | relative_url }}).
+
 Calipso is a ransomware strain that was publicly reported in October 2026. Before opening the sample myself, I read the Triage run and the PCRisk write-up. All execution records in this post are from Triage (Windows 10).
 
 | Item | Value |

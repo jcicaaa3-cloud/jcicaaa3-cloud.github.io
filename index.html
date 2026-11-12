@@ -18,12 +18,12 @@ description: "보안과 AI를 같이 공부하는 jcicaaa3의 기록: 악성코�
   <div class="section-head"><h2>요즘 보고 있는 것</h2><span class="aux">Calipso / Windows 실행 파일</span></div>
   <div class="feature">
     <div class="feature-text">
-      <span class="label">2026-11-06 · Calipso 분석 (2)</span>
-      <h3>PE 구조와 Ghidra</h3>
-      <p>해시를 확인하고 PE 헤더와 섹션 19개를 본 다음, Ghidra에서 <code>DeviceIoControl</code>에 <code>0x900B3</code>을 넘기는 코드를 찾았습니다. 어디에 쓰는지는 아직 보는 중입니다.</p>
-      <a class="go" href="{{ '/research/calipso-02/' | relative_url }}">읽기 →</a>
+      <span class="label">2026-11-12 · Calipso 분석 v2.0</span>
+      <h3>암호화 구조와 실행 흐름</h3>
+      <p>XChaCha20으로 파일 앞 5MB를 암호화하고, 실행당 세션 키 하나를 RSA-4096으로 감싸 붙입니다. 로컬 NTFS 드라이브는 MFT를 직접 열거해 파일을 찾습니다. IOC와 YARA 룰까지 정리했습니다.</p>
+      <a class="go" href="{{ '/research/calipso-v2/' | relative_url }}">읽기 →</a>
     </div>
-    <a class="feature-img" href="{{ '/research/calipso-02/' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PowerShell에서 출력한 PE 섹션 19개"></a>
+    <a class="feature-img" href="{{ '/research/calipso-v2/' | relative_url }}"><img src="{{ '/assets/images/pe-sections.webp' | relative_url }}" alt="PowerShell에서 출력한 PE 섹션 19개"></a>
   </div>
 </section>
 
@@ -38,7 +38,7 @@ description: "보안과 AI를 같이 공부하는 jcicaaa3의 기록: 악성코�
     <div>
       <h3>보안</h3>
       <ul class="item-list">
-        <li><a href="{{ '/research/calipso-02/' | relative_url }}">Calipso 정적 분석</a><span class="tag">진행 중</span><span>PE 구조, Ghidra로 본 Windows API 호출</span></li>
+        <li><a href="{{ '/research/calipso-v2/' | relative_url }}">Calipso 정적 분석</a><span class="tag">v2.0</span><span>암호화 구조, 파일 탐색, 복구 방해, IOC·YARA</span></li>
         <li><a href="{{ '/research/hyflock-preview/' | relative_url }}">HYFLOCK 엔진별 탐지 비교</a><span class="tag">예정</span><span>백신 엔진마다 탐지 결과가 갈리는 이유</span></li>
         <li><a href="{{ '/research/hybrid-cryptography/' | relative_url }}">RSA + AES 파일 암호화 도구</a><span class="tag">설계 중</span><span>PowerShell, C#으로 만드는 하이브리드 암호화</span></li>
       </ul>

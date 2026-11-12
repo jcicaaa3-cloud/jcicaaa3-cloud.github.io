@@ -7,6 +7,8 @@ kind: malware
 permalink: /en/research/calipso-02/
 description: "PE header and sections of the Calipso executable, and a DeviceIoControl 0x900B3 call found in Ghidra"
 ---
+> Early notes. The consolidated write-up with everything after this is [Calipso analysis v2.0]({{ '/en/research/calipso-v2/' | relative_url }}).
+
 In the [last post]({{ '/en/research/calipso-01/' | relative_url }}) I only looked at the Triage report. This time I opened the executable: hash check, then PE header and sections, then Ghidra. Screenshots are from November 6, and the sample isn't uploaded anywhere.
 
 ```text
@@ -17,7 +19,7 @@ SHA-256  9f77af05e8b3112eb13777853c7397442d8467549c3bce01f2639305f98e96ed
 
 ## PE header, sections
 
-x64 PE with 19 sections. Besides `.text`, `.data`, and `.rdata`, several `.debug_*` sections are still there, which look like DWARF debug info.
+x64 PE with 19 sections. Besides `.text`, `.data`, and `.rdata`, several `.debug_*` sections with DWARF debug info are still there.
 
 <figure><a href="{{ '/assets/images/pe-file-header.webp' | relative_url }}"><img src="{{ '/assets/images/pe-file-header.webp' | relative_url }}" loading="lazy" alt="PE file header values in PowerShell"></a><figcaption>PE header</figcaption></figure>
 

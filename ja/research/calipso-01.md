@@ -7,6 +7,8 @@ kind: malware
 permalink: /ja/research/calipso-01/
 description: "Calipsoランサムウェアの公開Triage実行記録とPCRiskの記事のメモ"
 ---
+> 初期の記録です。その後の解析までまとめたものは[Calipso解析 v2.0]({{ '/ja/research/calipso-v2/' | relative_url }})にあります。
+
 Calipsoは2026年10月に公開報告されたランサムウェアです。サンプルを自分で開く前に、Triageの実行記録とPCRiskの記事を読みました。この記事の実行記録はすべてTriage（Windows 10）で見たものです。
 
 | 項目 | 値 |
