@@ -28,5 +28,4 @@ I'm interested in using AI to detect malware, and in how to evaluate that detect
 
 ## Contact
 
-- Email: [jcicaaa3@gmail.com](mailto:jcicaaa3@gmail.com)
 - GitHub: [jcicaaa3-cloud](https://github.com/jcicaaa3-cloud)
