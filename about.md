@@ -27,5 +27,4 @@ AI로 악성코드를 탐지하는 것, 그리고 그 탐지 결과를 어떻게
 
 ## 연락
 
-- 이메일: [jcicaaa3@gmail.com](mailto:jcicaaa3@gmail.com)
 - GitHub: [jcicaaa3-cloud](https://github.com/jcicaaa3-cloud)
