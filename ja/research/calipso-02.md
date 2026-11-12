@@ -17,7 +17,7 @@ SHA-256  9f77af05e8b3112eb13777853c7397442d8467549c3bce01f2639305f98e96ed
 
 ## PEヘッダー、セクション
 
-x64のPEで、セクションは19個です。`.text`、`.data`、`.rdata`のほかに`.debug_*`セクションがいくつも残っていて、DWARFのデバッグ情報のようです。
+x64のPEで、セクションは19個です。`.text`、`.data`、`.rdata`のほかに`.debug_*`セクションがいくつも残っていて、DWARFのデバッグ情報です。
 
 <figure><a href="{{ '/assets/images/pe-file-header.webp' | relative_url }}"><img src="{{ '/assets/images/pe-file-header.webp' | relative_url }}" loading="lazy" alt="PowerShellで見たPEファイルヘッダーの値"></a><figcaption>PEヘッダー</figcaption></figure>
 
