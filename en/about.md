@@ -3,28 +3,24 @@ layout: page
 lang: en
 title: About
 permalink: /en/about/
-description: "About jcicaaa3: a computer engineering undergraduate studying security and AI"
+description: "jcicaaa3: computer engineering undergraduate working on malware analysis and reverse engineering, ransomware analysis, YARA and MITRE ATT&CK detection, and machine learning malware detection and evaluation"
 ---
-I'm a computer engineering student at Hankuk University of Foreign Studies, with a double major in Northeast Asian Diplomacy and Commerce.
+I'm a computer engineering student at Hankuk University of Foreign Studies, with a double major in Northeast Asian Diplomacy and Commerce. I work on security and AI together.
 
-I study security and AI side by side. On the security side, I take apart Windows PE files in Ghidra and check things with Python and PowerShell as I do static analysis of malware. On the AI side, I've built a computer vision model and a machine learning service, and spent the spring semester on a research project evaluating robot actions.
+## What I do
 
-## Where I want to take this
+- **Malware analysis and reverse engineering**: static analysis of Windows PE files in Ghidra. I took the Calipso ransomware apart from its encryption design (XChaCha20 + RSA-4096) to file discovery (MFT enumeration) and recovery inhibition. [Analysis v2.0]({{ '/en/research/calipso-v2/' | relative_url }})
+- **Detection content**: turning analysis into IOCs, YARA rules, and MITRE ATT&CK mappings.
+- **ML malware detection**: building a static detection model on EMBER2024 and comparing results across ransomware families. (in progress)
+- **AI model development and evaluation**: built a computer vision model and a machine learning service; research on evaluating robot actions in spring 2026.
 
-I'm interested in using AI to detect malware, and in how to evaluate that detection. Antivirus engines sometimes disagree on the same sample, and in my robot research the success/failure verdict changed with the criterion. So I want to ask the same question on the security side: what should count as a successful detection?
+## The question I'm working on
 
-## Interests
+Antivirus engines disagree on the same sample. In my robot research, changing the judging criterion flipped results between success and failure. So for detection models I want to pin down what counts as a successful detection: which false positive rate to hold, and which samples to test on.
 
-### Security
+## Tools
 
-- Windows PE structure and static analysis
-- Ransomware behavior and the traces it leaves on a system
-- Cryptography and file protection
-
-### AI
-
-- Validating machine learning models and choosing evaluation criteria
-- Using AI to detect malware
+Ghidra · YARA · MITRE ATT&CK · Python · PowerShell · Git
 
 ## Contact
 
