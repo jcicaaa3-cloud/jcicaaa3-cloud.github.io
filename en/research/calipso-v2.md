@@ -2,7 +2,7 @@
 layout: post
 lang: en
 title: "Calipso analysis v2.0: encryption and execution flow"
-date: 2026-11-12 18:00:00 +0900
+date: 2026-11-12 12:00:00 +0900
 kind: malware
 permalink: /en/research/calipso-v2/
 description: "Static analysis of the Calipso ransomware: XChaCha20 + RSA-4096 OAEP, first-5MB partial encryption, MFT-based file discovery, recovery inhibition, IOCs and a YARA rule"
