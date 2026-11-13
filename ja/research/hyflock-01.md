@@ -5,13 +5,11 @@ title: "HYFLOCK解析（1）ハッシュとエンジン別の検知結果"
 date: 2026-11-12 23:00:00 +0900
 kind: malware
 permalink: /ja/research/hyflock-01/
-description: "HYFLOCKのGo製Carrierサンプルのハッシュ、ファイルメタデータ、VirusTotalのエンジン別検知結果のまとめ"
+description: "HYFLOCKサンプルのハッシュとVirusTotalのエンジン別検知結果"
 ---
-> HYFLOCK連載の最初の記事です。予告記事は[次の解析対象：HYFLOCK]({{ '/ja/research/hyflock-preview/' | relative_url }})にあります。
+[予告記事]({{ '/ja/research/hyflock-preview/' | relative_url }})で書いたHYFLOCKです。ファイルを開く前に、ハッシュとVirusTotalの検知結果を先に書いておきます。
 
-実際のファイルを開く前に、公開情報だけで確認できる内容を先にまとめます。今回扱うのは、ハッシュ、ファイルのメタデータ、VirusTotalのエンジン別検知結果です。PE構造や内部のペイロードはまだ見ておらず、次回から扱う予定です。
-
-サンプルファイルは載せません。検知結果は照会した時期やエンジンの更新によって変わることがあるため、以下の数値は2026年11月12日に照会した時点のものとしてお読みください。
+検知結果は2026-10-07に提出されたVirusTotalのレポートのもので、11月12日に確認しました。スキャンし直すと数字は変わるかもしれません。サンプルファイルは載せません。
 
 | 項目 | 値 |
 | --- | --- |
@@ -20,43 +18,67 @@ description: "HYFLOCKのGo製Carrierサンプルのハッシュ、ファイル�
 | SHA-256 | `b15482d0846ef997f9c049e77d85efeba4ab9b33550b4384052efeb1a3dcc8cc` |
 | SSDeep | `49152:rZFcnnf3Srb/T2vO90d7HjmAFd4A64nsfJk8lm3gPKBBq0aD1RbJ/AREQjfWD3X+:M3/Sd6jfClXHKIbMG3ESeBb` |
 | Authentihash | `5bf05e748fb55eced3df1cb0acc0fd434527c69f8c7b5256549f9431a9d6e480` |
-| サイズ | `3,851,808 bytes`（約3.7MB） |
-| 形式 | `PE32+ executable (console) x86-64, for MS Windows` |
-| VirusTotal初回提出 | `2026-10-07 04:59:22 UTC` |
-| 検知結果の照会日 | `2026-11-12` |
+| サイズ | `3,851,808 bytes` |
+| 形式 | `PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows` |
+| TimeStamp | `0000:00:00 00:00:00` |
+| LinkerVersion | `3` |
+| CodeSize | `726528` |
+| EntryPoint | `0x628a0` |
+| VirusTotalレポート提出 | `2026-10-07 04:59:22 UTC` |
+| 確認した日 | `2026-11-12` |
 
-## メタデータから見えること
+## ファイル情報
 
-- **TimeStampが0です。** ビルド時刻の情報が空なので、この値からはコンパイル時期が分かりません。
-- **LinkerVersionが3です。** GoのツールチェーンでビルドされたWindowsバイナリでよく見られる値と同じです。Check Pointのレポートで説明されているGo製Carrierの構造と一致するかどうかは、次回pclntabなどを自分で確認してから判断します。
-- **ファイルサイズに比べてCodeSizeが小さいです。** CodeSizeは726,528 bytesで、ファイル全体は約3.85MBです。残りの領域に何が入っているかは、セクションとオーバーレイを確認しないと分かりません。
-- **デバッグ情報がありません。** `No debug`、`stripped to external PDB`と表示されます。
-- **TrIDの結果は一般的な分類にとどまります。** 最上位でも`Win64 Executable (generic)` 37.0%なので、ファミリーの判断にはあまり使えません。
+TimeStampが0なので、ビルド時刻は分かりません。LinkerVersion 3は、GoでビルドしたWindows実行ファイルでよく見る値です。[Check Pointの記事](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/)では10月初めのビルドがGo製のCarrierだとされていますが、このファイルがそうかどうかは開いて確認するつもりです。
+
+CodeSizeは726,528 bytesで、ファイルは3.85MBです。残りが何なのかはセクションを見ないと分かりません。
 
 ## エンジン別の検知結果
 
-67エンジン中**28エンジンが検知**しました。検知名の表記で分けると次のとおりです。この分類は検知名の文字列だけを見て分けたもので、各エンジンが実際にどの方式で判定したかを意味するものではありません。
+67エンジン中28エンジンが検知しました。
 
-| 分類 | エンジン数 | エンジン（検知名） |
-| --- | --- | --- |
-| ランサムウェア・Filecoderを明示 | 10 | Alibaba（`Ransom:Win64/Killav`）、ESET-NOD32（`Win64/Filecoder.AUT`）、Ikarus（`Trojan-Ransom.Nishi`）、Kaspersky（`UDS:Trojan-Ransom.Win64.Generic`）、McAfeeD（`Trojan:Win/Ransom.P`）、Microsoft（`Ransom:MSIL/Killav.VD!MTB`）、Rising（`Ransom.Agent`）、Tencent（`Win64.Trojan-Ransom.Generic`）、Varist（`W64/Filecoder.QI.gen`）、huorong（`Ransom/Qilin.a`） |
-| ML・AI・レピュテーション・信頼度の表記 | 7 | AVG（`FileRepMalware`）、Avast（`FileRepMalware`）、CrowdStrike（`malicious_confidence_100%`）、Elastic（`malicious (high confidence)`）、Paloalto（`generic.ml`）、SentinelOne（`Static AI - Malicious PE`）、Symantec（`ML.Attribute.HighConfidence`） |
-| 一般的なマルウェア・トロイの木馬の表記 | 11 | APEX、Bkav、Cylance、Cynet、Lionic、MaxSecure、Sangfor、Skyhigh、Sophos、TrellixENS、tehtris |
+| エンジン | 検知名 |
+| --- | --- |
+| APEX | `Malicious` |
+| AVG | `FileRepMalware [Misc]` |
+| Alibaba | `Ransom:Win64/Killav.1bb95b75` |
+| Avast | `FileRepMalware [Misc]` |
+| Bkav | `W32.Malware.E568AD45` |
+| CrowdStrike | `win/malicious_confidence_100% (W)` |
+| Cylance | `Unsafe` |
+| Cynet | `Malicious (score: 100)` |
+| ESET-NOD32 | `Win64/Filecoder.AUT trojan` |
+| Elastic | `malicious (high confidence)` |
+| Ikarus | `Trojan-Ransom.Nishi` |
+| Kaspersky | `UDS:Trojan-Ransom.Win64.Generic` |
+| Lionic | `Trojan.Win32.Generic.j!c` |
+| MaxSecure | `Trojan.Malware.300983.susgen` |
+| McAfeeD | `Trojan:Win/Ransom.P` |
+| Microsoft | `Ransom:MSIL/Killav.VD!MTB` |
+| Paloalto | `generic.ml` |
+| Rising | `Ransom.Agent!1.129F5 (CLASSIC)` |
+| Sangfor | `Trojan.Win32.Save.a` |
+| SentinelOne | `Static AI - Malicious PE` |
+| Skyhigh | `BehavesLike.Win64.Generic.wh` |
+| Sophos | `Mal/Generic-S` |
+| Symantec | `ML.Attribute.HighConfidence` |
+| Tencent | `Win64.Trojan-Ransom.Generic.Zolw` |
+| TrellixENS | `Artemis!3440C03E9C0F` |
+| Varist | `W64/Filecoder.QI.gen!Eldorado` |
+| huorong | `Ransom/Qilin.a` |
+| tehtris | `Generic.Malware` |
 
-## 検知結果から見えること
+名前にRansomかFilecoderが入っているエンジンは10個です（Alibaba、ESET-NOD32、Ikarus、Kaspersky、McAfeeD、Microsoft、Rising、Tencent、Varist、huorong）。残り18個の名前にはランサムウェアという言葉がありません。`generic.ml`、`Static AI - Malicious PE`、`FileRepMalware`、`Mal/Generic-S`のような名前です。
 
-- **エンジンによってファミリー名が違います。** Qilin（huorong）、Nishi（Ikarus）、Killav（Alibaba、Microsoft）のように、異なるファミリー名が付いています。ランサムウェアだという判断は複数のエンジンで共通していますが、どのファミリーかについては一致していません。
-- **Microsoftの検知名に`MSIL`が含まれています。** MSILは通常.NETバイナリに付く表記です。しかし、ファイル形式の情報には.NETに関する表示がありません。CLRヘッダーが実際にあるかどうかは次回確認します。
-- **ランサムウェアを明示していない検知が18件あります。** 28件中18件はML・レピュテーション系か、一般的なマルウェアの表記です。マルウェアだという判断とランサムウェアという分類が、エンジンごとに別々に行われていることがうかがえます。
-- **39エンジンは検知しませんでした。** 今回は未検知の原因を推測しません。同じファミリーの別ビルドと検知結果を比較したうえで、静的な特徴と結び付けて扱います。
+ランサムウェアと書いているエンジン同士でも、付けている名前は違います。huorongはQilin、IkarusはNishi、AlibabaとMicrosoftはKillavです。
 
-## まだやっていないこと
+Microsoftの検知名には`MSIL`が入っています。普通は.NETのファイルに付く表記ですが、形式の情報には.NETの話がありません。ファイルを開いたら、まずCLRヘッダーがあるかを見るつもりです。
 
-- PEヘッダー、セクション、エントロピー、インポートの確認
-- Go製Carrierと内部ペイロードの関係の確認
-- ほかのHYFLOCKビルドとの検知結果の比較
-- Check Pointのレポート内容との照合
+## 次に見ること
 
-次回はファイルを実際に開いて、PE構造とGo製Carrierを見ます。
+- PEヘッダー、セクション、インポート、文字列
+- Goの実行ファイルと中のペイロードの関係
+- ほかのビルドの検知結果
+- Check Pointの記事と自分で見たものの比較
 
-参考：[Check Point：HYFLOCK](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/) · [VirusTotal](https://www.virustotal.com/gui/file/b15482d0846ef997f9c049e77d85efeba4ab9b33550b4384052efeb1a3dcc8cc)
+参考：[Check Pointの記事](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/) · [VirusTotal](https://www.virustotal.com/gui/file/b15482d0846ef997f9c049e77d85efeba4ab9b33550b4384052efeb1a3dcc8cc)
