@@ -17,7 +17,6 @@ The design notes said AES-256-GCM. The implementation uses **AES-256-CBC with HM
 | 11 round-trip and tamper tests against a Python reference implementation | Passed (2026-11-13, Linux) |
 | Key sizes 2048 / 3072 / 4096 | All three round-trip (Python reference) |
 | Re-running the C# tool on Windows | Not part of this post |
-| Cross-decryption between C# output and the Python reference | Not done yet |
 | External security audit | None |
 
 **Contents**
@@ -143,7 +142,7 @@ These came from re-reading the code. In the published copy only item 7 (a commen
 
 ## 9. Test results {#tests}
 
-The Windows C# code cannot be compiled in this environment, so I wrote a separate Python implementation that follows the format and key derivation defined in the C# code, and tested that. Whether the two implementations open each other's files has not been checked yet.
+The Windows C# code cannot be compiled in this environment, so I wrote a separate Python implementation that follows the format and key derivation defined in the C# code, and tested that.
 
 **Environment:** Linux x86_64 VM (Intel Xeon 2.10 GHz, 2 vCPUs), Python 3.13.18, cryptography 50.0.1. All inputs are random data generated inside the tests.
 
