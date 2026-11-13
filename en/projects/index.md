@@ -21,11 +21,11 @@ The plan is to look at the Go carrier and Rust payload, then compare why antivir
 
 [Plan]({{ '/en/research/hyflock-preview/' | relative_url }})
 
-### RSA + AES file encryption tool <small>in design</small>
+### RSA + AES file encryption tool <small>v4</small>
 
-A PowerShell and C# tool that encrypts files with AES-256-GCM and the AES key with RSA-OAEP.
+A PowerShell and C# tool that encrypts files with AES-256-CBC + HMAC-SHA256, wraps a per-file secret with RSA-OAEP and also requires a password. The source is published under the MIT licence.
 
-[Design notes]({{ '/en/research/hybrid-cryptography/' | relative_url }})
+[Design, tests and source code]({{ '/en/research/hybrid-cryptography/' | relative_url }})
 
 ## AI
 

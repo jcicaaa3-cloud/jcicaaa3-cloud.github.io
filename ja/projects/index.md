@@ -21,11 +21,11 @@ Go製CarrierとRustペイロードの構造を見て、ウイルス対策エン�
 
 [計画]({{ '/ja/research/hyflock-preview/' | relative_url }})
 
-### RSA + AESのファイル暗号化ツール <small>設計中</small>
+### RSA + AESのファイル暗号化ツール <small>v4</small>
 
-ファイルはAES-256-GCMで、AESの鍵はRSA-OAEPで暗号化するツールをPowerShellとC#で作っています。
+ファイルはAES-256-CBC + HMAC-SHA256で暗号化し、ファイルごとの秘密値をRSA-OAEPで包み、さらにパスワードを要求するツールです。PowerShellとC#で作り、ソースコードをMITライセンスで公開しました。
 
-[設計メモ]({{ '/ja/research/hybrid-cryptography/' | relative_url }})
+[構成・検証・ソースコード]({{ '/ja/research/hybrid-cryptography/' | relative_url }})
 
 ## AI
 
