@@ -20,11 +20,11 @@ Go Carrier와 Rust 페이로드 구조를 보고, 백신 엔진마다 탐지 결
 
 [계획 글]({{ '/research/hyflock-preview/' | relative_url }})
 
-### RSA + AES 파일 암호화 도구 <small>설계 중</small>
+### RSA + AES 파일 암호화 도구 <small>v4</small>
 
-파일은 AES-256-GCM으로, AES 키는 RSA-OAEP로 암호화하는 도구를 PowerShell과 C#으로 만들고 있습니다.
+파일은 AES-256-CBC + HMAC-SHA256으로, 파일별 비밀값은 RSA-OAEP로 감싸고 비밀번호를 함께 요구하는 도구입니다. PowerShell과 C#으로 만들었고 소스코드를 MIT 라이선스로 공개했습니다.
 
-[설계 메모]({{ '/research/hybrid-cryptography/' | relative_url }})
+[구조·검증·소스코드]({{ '/research/hybrid-cryptography/' | relative_url }})
 
 ## AI
 
