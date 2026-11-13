@@ -7,7 +7,7 @@ kind: malware
 permalink: /ja/research/calipso-v2/
 description: "Calipsoランサムウェアの静的解析まとめ。XChaCha20 + RSA-4096 OAEP、先頭5MBの部分暗号化、MFTによるファイル探索、復旧妨害、IOCとYARAルール"
 ---
-Calipso.exeをGhidra 12.2で静的解析した内容のまとめです。(1)〜(3)の内容を含め、その後に見た暗号化の仕組みと実行の流れを加えました。静的解析のみで、実行時の挙動はRecorded Future Triageの公開レポートを参照しました。関数アドレスはイメージベース`0x140000000`基準です。
+Calipso.exeをGhidra 12.2で静的解析した内容のまとめです。(1)〜(3)の内容を含め、その後に見た暗号化の仕組みと実行の流れを加えました。サンプルは11月6日に隔離したVMで一度だけ実行し、拡張子の変更とデスクトップの案内だけを確認しました（[(3)]({{ '/ja/research/calipso-03/' | relative_url }})）。この記事の解析はその後の静的解析のみで行い、実行時の挙動はRecorded Future Triageの公開レポートを参照しました。関数アドレスはイメージベース`0x140000000`基準です。
 
 ## 要約
 

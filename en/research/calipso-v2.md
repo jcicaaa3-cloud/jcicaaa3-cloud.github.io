@@ -7,7 +7,7 @@ kind: malware
 permalink: /en/research/calipso-v2/
 description: "Static analysis of the Calipso ransomware: XChaCha20 + RSA-4096 OAEP, first-5MB partial encryption, MFT-based file discovery, recovery inhibition, IOCs and a YARA rule"
 ---
-A consolidated write-up of my static analysis of Calipso.exe in Ghidra 12.2. It folds in posts (1) to (3) and adds the encryption design and execution flow I worked out afterwards. Static analysis only; runtime behavior comes from the public Recorded Future Triage report. Function addresses assume image base `0x140000000`.
+A consolidated write-up of my static analysis of Calipso.exe in Ghidra 12.2. It folds in posts (1) to (3) and adds the encryption design and execution flow I worked out afterwards. I ran the sample once in an isolated VM on November 6 and only checked the renamed files and the desktop notice ([post (3)]({{ '/en/research/calipso-03/' | relative_url }})). The analysis in this write-up is static analysis done after that; runtime behavior comes from the public Recorded Future Triage report. Function addresses assume image base `0x140000000`.
 
 ## Summary
 
