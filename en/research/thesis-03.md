@@ -7,7 +7,7 @@ kind: thesis
 permalink: /en/research/thesis-03/
 description: "How RQ3 changed when the Shodi samples couldn't be obtained, static analysis of a CryptoLocker sample LightGBM missed, byte-level checks of the HYFLCK03 footer in a HYFLOCK Go carrier, the claims I scaled back, and what's left"
 ---
-If [part 2]({{ '/en/research/thesis-02/' | relative_url }}) was numbers, this one is about opening the missed samples. More changed than went to plan. The last section collects the claims I scaled back while revising.
+Following [part 2]({{ '/en/research/thesis-02/' | relative_url }}), this is RQ3: opening the missed samples. The last section collects the claims I scaled back while revising.
 
 1. [Changing topic and setting the questions]({{ '/en/research/thesis-01/' | relative_url }})
 2. [Reproducing MLRan, family-disjoint evaluation, feature reselection, SHAP]({{ '/en/research/thesis-02/' | relative_url }})
@@ -60,9 +60,9 @@ But I couldn't obtain Shodi files matching those hashes. So that table isn't in 
 
 With Shodi blocked, I reworked RQ3. RQ1, RQ2 and their tables stayed; only section 2.4, section 3.3, parts of chapters 4 and 5, and the abstract changed.
 
-At first I meant to describe this as "a change in case selection due to sample availability". But the CryptoLocker sample I was about to analyse (`654c4734…`) was already the sample for criterion (2), "the FN given the highest probability of being benign". So rather than say the selection changed, I wrote what happened: the criterion (1) Shodi samples couldn't be obtained, and the criterion (2) sample was analysed.
+At first I meant to describe this as "a change in case selection due to sample availability". But the CryptoLocker sample I was about to analyse (`654c4734…`) was already the sample for criterion (2), "the FN given the highest probability of being benign". So rather than say the selection changed, I wrote it as it was: the criterion (1) Shodi samples couldn't be obtained, and the criterion (2) sample was analysed.
 
-It wasn't fully clean either. Applying criterion (2) to LightGBM gives two CryptoLocker samples tied at a ransomware probability of 0.167. The criteria had no tie-breaking rule, so picking one was a choice outside them. The thesis says so, and lists everything not analysed:
+Applying criterion (2) to LightGBM gives two CryptoLocker samples tied at a ransomware probability of 0.167. The criteria had no tie-breaking rule, so picking one was a choice outside them. The thesis says so, and lists everything not analysed:
 
 - The other tied CryptoLocker sample
 - The criterion (2) sample for LR
@@ -153,7 +153,7 @@ So the thing to examine here is the recorded behaviour, not the label. MLRan may
 | The thread leads to drive enumeration; how file contents are changed is unconfirmed | S | Confirmed / unconfirmed |
 | The run may not have passed the confirmation within 120 s | S·D | Hypothesis |
 
-These observations fit one story: the sample sat at the confirmation dialog for 120 seconds without reaching file processing, the record came out looking like an ordinary GUI program, and LightGBM judged that record benign.
+Put together, these observations suggest one interpretation: the sample sat at the confirmation dialog for 120 seconds without reaching file processing, the record came out looking like an ordinary GUI program, and LightGBM judged that record benign.
 
 The thesis keeps that as a hypothesis. I didn't check screenshots or raw logs to see whether it waited at the dialog. M is computed on features from D, so their agreement isn't two independent pieces of evidence. And a decryption window alone doesn't make the file a decryptor or benign software.
 
@@ -171,7 +171,7 @@ The HYFLOCK carrier was obtained privately and is a case from outside the datase
 | Sections | 6; file entropy 6.37, max section 6.16 |
 | Imported functions | 39 |
 
-With a maximum section entropy of 6.16, it didn't look like an encrypted payload was hiding inside a section. So where was the payload? That was the starting question.
+With a maximum section entropy of 6.16, it didn't look like an encrypted payload was hiding inside a section. So I started by looking for where the payload was attached.
 
 What Ghidra showed:
 
@@ -201,7 +201,7 @@ The first 8 bytes are ASCII `HYFLCK03`; the last 8 are big-endian `0x224A10` = 2
 3,851,808 − 16 − 2,247,184             = 1,604,608 = payload start = end of last section's raw data
 ```
 
-This isn't "the code is written to read such a format"; it's byte-level confirmation that data in that format is really attached to the end of the file. I was pretty pleased when this came out.
+That confirms at byte level that data in the format the loader reads is attached to the end of the file.
 
 Then I read the first two bytes at the payload offset.
 
@@ -238,7 +238,7 @@ So HYFLOCK has no probability and no SHAP, and is used only to compare static fi
 
 The manuscript is at v14. There's a seven-page limit, and the Korean, English and Japanese versions were kept in step. The Calipso analysis and the goodware-by-category split were cut from the body for space.
 
-Most of the revising was scaling claims back. Early and final wording side by side:
+Where the strength of a claim changed, early and final wording side by side:
 
 | Topic | Early draft | Final manuscript |
 | --- | --- | --- |
@@ -263,7 +263,5 @@ Future work listed in chapter 5:
 - Compare failed samples with training-family samples on the same criteria
 - Obtain Shodi samples and repeat the analysis
 - Repeat the evaluation keeping both time order and family separation, and on file-I/O-level data such as DEFEAT's
-
-Executing samples from outside the dataset, like HYFLOCK, and scoring them isn't part of this thesis. I'd like to pick it up if I go on to graduate school.
 
 References: [Check Point, HYFLOCK – From Underground Recruitment to Public Extortion (PDF)](https://checkpoint.cyberint.com/hubfs/HYFLOCK%20-%20From%20Underground%20Recruitment%20to%20Public%20Extortion.pdf) · [Check Point blog](https://blog.checkpoint.com/security/hyflock-ransomware-evolves-with-new-builds-and-encryption-weaknesses/) · [VirusTotal (HYFLOCK carrier)](https://www.virustotal.com/gui/file/b15482d0846ef997f9c049e77d85efeba4ab9b33550b4384052efeb1a3dcc8cc) · [MLRan paper (arXiv:2505.18613)](https://arxiv.org/abs/2505.18613)

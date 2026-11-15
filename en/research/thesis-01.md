@@ -5,7 +5,7 @@ title: "Thesis notes (1): changing topic and setting the questions"
 date: 2026-11-15 14:00:00 +0900
 kind: thesis
 permalink: /en/research/thesis-01/
-description: "Why I moved my graduation thesis from robot evaluation to ransomware detection, the family overlap in the public MLRan split, the research questions, the evidence labels and the analysis environment"
+description: "How robot evaluation research led on to ransomware detection, the family overlap in the public MLRan split, the research questions, the evidence labels and the analysis environment"
 ---
 I'm writing my graduation thesis. The title is:
 
@@ -19,7 +19,7 @@ The manuscript is at v14, in Korean and English, and it hasn't been submitted ye
 
 **Contents**
 
-1. [Why I left robot evaluation](#from-robot)
+1. [From robot evaluation to malware](#from-robot)
 2. [Opening samples first](#samples-first)
 3. [MLRan and its public split](#mlran)
 4. [Counting the split files](#overlap)
@@ -29,13 +29,11 @@ The manuscript is at v14, in Korean and English, and it hasn't been submitted ye
 8. [Overall procedure](#procedure)
 9. [Analysis environment and safety rules](#safety)
 
-## 1. Why I left robot evaluation {#from-robot}
+## 1. From robot evaluation to malware {#from-robot}
 
 In the spring semester I worked on evaluating robot actions. I ran OpenVLA-OFT 80 times in LIBERO-Spatial and compared criteria for judging 874 events, such as grasps and placements, as successes or failures. When I changed the criteria and the ground-truth labels, F1 on the same records dropped from 0.9111 to 0.5970. The model hadn't changed; only the evaluation had.
 
-On 28 October I submitted a thesis draft based on that work. In early November I decided to set it aside. Robot AI didn't look like it would lead anywhere for me after graduation, and the field I'd been interested in for much longer was malware. I emailed my supervisor to withdraw the draft and promised a new one within the week.
-
-The topic changed, but the question carried over. The robot work was about how much the evaluation conditions move the result, and reading ransomware detection papers brought up the same thing: what samples were used to get that 98% detection rate?
+Finishing that work built up my skills in evaluation and verification, and for the thesis I carried on with malware, which I've been interested in since middle school. Reading ransomware detection papers, the first thing I wanted to check was the same as in the robot work: what samples produced that 98% detection rate.
 
 ## 2. Opening samples first {#samples-first}
 
@@ -46,9 +44,7 @@ Before settling the topic, I opened a few real ransomware samples. If I wanted t
 
 That naming disagreement later went into the limitations in chapter 4. Family labels in detection datasets are ultimately built on names like these. If one lineage is split across several names, a family-disjoint split isn't fully disjoint.
 
-Around this time I emailed the professor of my security course for advice on the topic, and was told to use reverse engineering as a supporting check on detection results. RQ3 follows that advice.
-
-Calipso was a sample I looked at before setting any selection criteria, so it was taken out of the final manuscript. Following a PE from scratch in Ghidra was still exactly the practice I needed for the CryptoLocker analysis in part 3.
+Calipso was a sample I looked at before setting any selection criteria, so it was taken out of the final manuscript.
 
 ## 3. MLRan and its public split {#mlran}
 

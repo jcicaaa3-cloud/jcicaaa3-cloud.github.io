@@ -110,7 +110,7 @@ LightGBM missed 43 more of the 465. Detection of the same samples was compared w
 
 I added this comparison after seeing the fold means, so the thesis calls it post hoc. The 465 samples are also the newest 20% in time order, so the size of the drop can't be extended to ransomware in general.
 
-One more caution. The two protocols differ in more than family overlap. Training folds in family-disjoint CV include samples newer than the test fold, and the training set's composition and size, de-duplication and per-fold hyperparameters all change too. So the thesis describes the difference as the result of changing the whole protocol, not of family overlap alone.
+The two protocols differ in more than family overlap. Training folds in family-disjoint CV include samples newer than the test fold, and the training set's composition and size, de-duplication and per-fold hyperparameters all change too. So the thesis describes the difference as the result of changing the whole protocol, not of family overlap alone.
 
 ## 6. Families where the drop concentrated {#families}
 
@@ -144,7 +144,7 @@ LightGBM catching only 18% of MBRLock looked odd, so I opened the prediction fil
 
 LightGBM ranked the two classes fairly well, but its narrow output range packed scores near the threshold, and cutting at 0.5 turned them into a pile of FNs.
 
-I rewrote how to describe this several times. An early draft said it was better read as threshold sensitivity than as a limit of family generalisation. But under the fixed operating condition (threshold 0.5), the model did miss families absent from training. The narrow output range is one mechanism behind the drop, not a reason to dismiss it. The final manuscript says this doesn't make the drop any less of a generalisation problem. I didn't re-tune the threshold; if I did, it would have to be set within the training folds, not on the test folds.
+I rewrote how to describe this several times. An early draft said it was better read as threshold sensitivity than as a limit of family generalisation. But under the fixed operating condition (threshold 0.5), the model did miss families absent from training. The final manuscript treats the narrow output range as one mechanism behind the drop and says this doesn't make it any less of a generalisation problem. I didn't re-tune the threshold; if I did, it would have to be set within the training folds, not on the test folds.
 
 ## 8. Test data inside feature selection {#leakage}
 
@@ -196,7 +196,7 @@ Comparing 483 features one by one wasn't practical, so I grouped them into nine 
 
 Shares add up to 100%, so one category growing means others shrink, and the per-category tests aren't independent; the thesis notes this. TP vs FN differences were tested with Mann–Whitney U and Holm's correction.
 
-One thing to state up front: an FN is by definition ransomware scored below the threshold, and a sample's SHAP values sum to the gap between its score and the baseline. So FNs having less attribution towards ransomware than TPs is expected. What this analysis can show is where, and in what form, that gap appears.
+An FN is by definition ransomware scored below the threshold, and a sample's SHAP values sum to the gap between its score and the baseline. So FNs having less attribution towards ransomware than TPs is expected. What this analysis can show is where, and in what form, that gap appears.
 
 | Category | Features | LR TP | LR FN | LR corrected p | LightGBM TP | LightGBM FN | LightGBM corrected p |
 | --- | --- | --- | --- | --- | --- | --- | --- |
