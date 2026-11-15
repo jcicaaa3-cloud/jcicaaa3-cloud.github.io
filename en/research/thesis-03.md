@@ -2,7 +2,7 @@
 layout: post
 lang: en
 title: "Thesis notes (3): reversing the missed samples, and revising the manuscript"
-date: 2026-11-15 14:20:00 +0900
+date: 2026-11-15 13:20:00 +0900
 kind: thesis
 permalink: /en/research/thesis-03/
 description: "How RQ3 changed when the Shodi samples couldn't be obtained, static analysis of a CryptoLocker sample LightGBM missed, byte-level checks of the HYFLCK03 footer in a HYFLOCK Go carrier, the claims I scaled back, and what's left"

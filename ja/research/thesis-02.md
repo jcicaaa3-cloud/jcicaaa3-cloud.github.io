@@ -2,7 +2,7 @@
 layout: post
 lang: ja
 title: "卒業論文の記録（2）MLRanの再現、ファミリー分離評価、特徴の再選択、SHAP"
-date: 2026-11-15 14:10:00 +0900
+date: 2026-11-15 13:10:00 +0900
 kind: thesis
 permalink: /ja/research/thesis-02/
 description: "MLRanのLR・LightGBMベースラインの再現、ファミリー分離の5分割交差検証、465件の対応比較、フォールドごとのRFE再選択、TPとFNのSHAP比較、実験中に直したこと"

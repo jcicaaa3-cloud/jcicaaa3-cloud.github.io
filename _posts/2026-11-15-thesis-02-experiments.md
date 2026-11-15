@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "졸업논문 기록 (2) MLRan 재현, 패밀리 분리 평가, 특징 재선택, SHAP"
-date: 2026-11-15 14:10:00 +0900
+date: 2026-11-15 13:10:00 +0900
 categories: [Thesis]
 tags: [ransomware, MLRan, logistic-regression, lightgbm, shap, cross-validation, mcnemar]
 kind: thesis

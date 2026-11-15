@@ -2,7 +2,7 @@
 layout: post
 lang: en
 title: "Thesis notes (2): reproducing MLRan, family-disjoint evaluation, feature reselection, SHAP"
-date: 2026-11-15 14:10:00 +0900
+date: 2026-11-15 13:10:00 +0900
 kind: thesis
 permalink: /en/research/thesis-02/
 description: "Reproducing the MLRan LR and LightGBM baselines, five-fold family-disjoint cross-validation, a paired comparison on 465 samples, per-fold RFE reselection, TP vs FN SHAP, and what I fixed along the way"

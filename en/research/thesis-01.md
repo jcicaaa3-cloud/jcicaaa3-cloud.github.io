@@ -2,7 +2,7 @@
 layout: post
 lang: en
 title: "Thesis notes (1): changing topic and setting the questions"
-date: 2026-11-15 14:00:00 +0900
+date: 2026-11-15 13:00:00 +0900
 kind: thesis
 permalink: /en/research/thesis-01/
 description: "How robot evaluation research led on to ransomware detection, the family overlap in the public MLRan split, the research questions, the evidence labels and the analysis environment"

@@ -2,7 +2,7 @@
 layout: post
 lang: ja
 title: "卒業論文の記録（1）テーマを変えて問いを立てるまで"
-date: 2026-11-15 14:00:00 +0900
+date: 2026-11-15 13:00:00 +0900
 kind: thesis
 permalink: /ja/research/thesis-01/
 description: "ロボット評価研究からランサムウェア検知の研究へ続いた流れ、MLRan公開分割のファミリー重複、研究課題と証拠の区分、解析環境"
