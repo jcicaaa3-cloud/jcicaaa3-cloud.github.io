@@ -3,6 +3,7 @@ ko:
   kinds:
     malware: 악성코드
     crypto: 암호학
+    thesis: 졸업논문
   prefix: ""
   skip: 본문으로 건너뛰기
   home: 처음
@@ -17,6 +18,7 @@ en:
   kinds:
     malware: Malware
     crypto: Crypto
+    thesis: Thesis
   prefix: /en
   skip: Skip to content
   home: Home
@@ -31,6 +33,7 @@ ja:
   kinds:
     malware: マルウェア
     crypto: 暗号
+    thesis: 卒業論文
   prefix: /ja
   skip: 本文へ移動
   home: ホーム

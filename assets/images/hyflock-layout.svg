@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 330" font-family="-apple-system, 'Segoe UI', 'Noto Sans KR', sans-serif" font-size="13">
+  <rect width="960" height="330" fill="#fff"/>
+  <text x="30" y="30" font-size="15" font-weight="600" fill="#222">HYFLOCK carrier · 3,851,808 bytes</text>
+  <text x="30" y="50" fill="#666">SHA-256 b15482d0…dcc8cc · offsets in bytes from the start of the file · last two blocks not to scale</text>
+  <path d="M332 92 V84 H700 V92" fill="none" stroke="#8a6b3c"/>
+  <text x="516" y="78" text-anchor="middle" fill="#6b4e22">payload (length in footer): 2,247,184 B</text>
+  <rect x="30" y="100" width="302" height="56" fill="#e8eef6" stroke="#5b7aa6"/>
+  <text x="181" y="124" text-anchor="middle" font-weight="600" fill="#223">Go loader (PE sections)</text>
+  <text x="181" y="144" text-anchor="middle" fill="#334">1,604,608 B</text>
+  <rect x="332" y="100" width="340" height="56" fill="#f6ece3" stroke="#a67a5b"/>
+  <text x="502" y="124" text-anchor="middle" font-weight="600" fill="#322">embedded PE (MZ, Rust traces)</text>
+  <text x="502" y="144" text-anchor="middle" fill="#433">2,222,592 B by its section table</text>
+  <rect x="672" y="100" width="28" height="56" fill="#f3e3b5" stroke="#a6905b"/>
+  <rect x="700" y="100" width="20" height="56" fill="#d9534f" stroke="#8a2f2c"/>
+  <g fill="#555" font-size="12">
+    <line x1="30" y1="156" x2="30" y2="168" stroke="#555"/><text x="30" y="182">0</text>
+    <line x1="332" y1="156" x2="332" y2="168" stroke="#555"/><text x="332" y="182" text-anchor="middle">1,604,608</text>
+    <line x1="720" y1="156" x2="720" y2="168" stroke="#555"/><text x="724" y="182">3,851,808</text>
+  </g>
+  <path d="M332 196 V206 H720 V196" fill="none" stroke="#555"/>
+  <text x="470" y="224" text-anchor="middle" fill="#333">overlay after the carrier's last section: 2,247,200 B = 2,247,184 + 16</text>
+  <line x1="686" y1="100" x2="760" y2="60" stroke="#a6905b"/>
+  <text x="766" y="58" fill="#6b5a22">24,592 B left in the payload</text>
+  <text x="766" y="74" fill="#6b5a22">after the PE's section end</text>
+  <line x1="710" y1="156" x2="710" y2="250" stroke="#8a2f2c"/>
+  <line x1="710" y1="250" x2="740" y2="268" stroke="#8a2f2c"/>
+  <text x="746" y="268" fill="#8a2f2c">footer 16 B</text>
+  <text x="30" y="296" fill="#8a2f2c">last 16 bytes:</text>
+  <text x="130" y="296" fill="#8a2f2c" font-family="Consolas, 'Courier New', monospace">48 59 46 4C 43 4B 30 33  00 00 00 00 00 22 4A 10</text>
+  <text x="130" y="316" fill="#8a2f2c">"HYFLCK03" (8 B) + payload length 0x224A10 = 2,247,184 (8 B, big-endian)</text>
+</svg>
