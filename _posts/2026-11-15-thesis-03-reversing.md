@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "졸업논문 기록 (3) 놓친 샘플 역공학과 원고를 고친 과정"
-date: 2026-11-15 14:20:00 +0900
+date: 2026-11-15 13:20:00 +0900
 categories: [Thesis]
 tags: [ransomware, CryptoLocker, HYFLOCK, ghidra, reverse-engineering, shap, thesis]
 kind: thesis

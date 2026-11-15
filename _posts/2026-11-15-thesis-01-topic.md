@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "졸업논문 기록 (1) 주제를 바꾸고 질문을 세우기까지"
-date: 2026-11-15 14:00:00 +0900
+date: 2026-11-15 13:00:00 +0900
 categories: [Thesis]
 tags: [ransomware, MLRan, explainable-ai, shap, family-disjoint, thesis]
 kind: thesis
